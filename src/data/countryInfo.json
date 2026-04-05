@@ -1,0 +1,226 @@
+[
+    {
+        "id": 1,
+        "countryChineseName": "安道尔公国",
+        "countryEnglishName": "Principality of Andorra",
+        "images": "/wiki/Flag/Andorra.jpg",
+        "shortContents": "安道尔公国，高山上的小国。虽然只有一名魔女，但挡住了异形军进军伊斯帕尼亚的步伐，守住了难民通道。",
+        "territory": "安道尔公国，对应现实中的安道尔公国。具体位置位于法国和西班牙国境线上，是比利牛斯山脉上的小国，面积只有468平方公里。",
+        "polity": "现实中安道尔大公是由西班牙加泰罗尼亚地区天主教乌赫尔教区主教和法国国家元首共同担任，作品中估计也是如此。那么，按照时间推算，作品中的安道尔大公是雷蒙·伊格莱西亚斯·纳瓦利和夏尔·戴·高乐。",
+        "military": "目前登场魔女只有1位，即伊莉丝·蒙福特。",
+        "tags": ["国家", "安道尔"]
+    },
+    {
+        "id": 2,
+        "countryChineseName": "巴尔特兰王国",
+        "countryEnglishName": "Kingdom of Baltland",
+        "images": "/wiki/Flag/Baltland.jpg",
+        "shortContents": "巴尔特兰王国，北欧大国。尽管暂时没有出场纪录，不过魔女的实力应该不容小觑。",
+        "territory": "巴尔特兰王国，对应现实中的丹麦、挪威、瑞典和冰岛（好家伙，蠢驴的梦竟然在这里实现了）。这个名字似乎是来自于“Baltic”，即波罗的海地区的意思。原型应该是现实中14世纪末至16世纪初的卡尔马联盟。",
+        "polity": "似乎是君主立宪制，但系列中没有明确说明。",
+        "military": "目前登场人物只有一位，卡尔拉·G·E·冯·罗森。是该国的贵族，伯爵，非常有钱。尽管是魔女，但并未加入军队。",
+        "tags": ["国家", "巴尔特兰"]
+    },
+    {
+        "id": 3,
+        "countryChineseName": "比利时卡王国",
+        "countryEnglishName": "Kingdom of Belgica",
+        "images": "/wiki/Flag/Belgica.jpg",
+        "shortContents": "比利时卡王国，西欧小国。在高卢解放后成为夺回卡尔斯兰的前线。目前境内驻扎有不少他国军队。",
+        "territory": "比利时卡王国，对应现实中的比利时。和尼德兰王国，即现实中的荷兰接壤。",
+        "polity": "应该是君主制或者君主立宪制，但系列中没有明确说明。",
+        "military": "在501解散期间，其圣特雷登基地曾有施瑙佛少校、明娜中校、巴克霍隆少校和哈特曼中尉驻守。目前登场魔女有两位，其中罗莎莉在官方设定中算在了高卢中，因此这里只算作一位，即伊莎贝尔·杜·蒙梭·德·巴卡德尔少尉。",
+        "tags": ["国家", "比利时卡"]
+    },
+    {
+        "id": 4,
+        "countryChineseName": "不列颠尼亚联邦",
+        "countryEnglishName": "Commonwealth of Britannia",
+        "images": "/wiki/Flag/Britannia.jpg",
+        "shortContents": "不列颠尼亚联邦，对应现实中英国。不列颠尼亚这个名字来自于古罗马时期的行省。强大的海洋国家，和扶桑皇国并称东之扶桑，西之不列颠尼亚。自认为自己是欧洲盟主，而且此认知十分强烈，总想着在联军内抓住主导权。不过和现实中相同，也出现了衰退的迹象。",
+        "territory": "不列颠尼亚本土部分，除了爱尔兰直接并入之外，其他和现实相同。因此就是英格兰、苏格兰、整个爱尔兰和威尔士。另外，和现实中一样，其治下还有Commonwealth其中面积最大的加盟国就是法尔威兰联邦，即现实中的加拿大。不过，至于本系列中的有哪些地方，并没有一个详细且具体的说明，目前已知的，除了法尔威兰联邦之外，还有新泽兰联邦（即新西兰）、缅甸联邦（即缅甸）、印度联邦等。实力非常强盛。当然，原本的殖民地利比里昂和现实一样独立出去了（就是美国）。",
+        "history": "在整个17世纪，不列颠尼亚和扶桑皇国经历了两次战争。1699年结为同盟。而到了第二次异形军大战之初，不列颠尼亚政府派遣魔女、军队等到欧洲大陆，协助卡尔斯兰等国对抗异形军。在欧洲沦陷之后，由于和欧洲大陆隔海相望，因此成为人类在欧洲的反抗军大本营。实行发电机计划（即敦刻尔克大撤退）之后，统领集中而来的各国魔女，组成了世界第一个统合战斗飞行团“强袭魔女”",
+        "polity": "和现实中一样，不列颠尼亚也是代议制君主立宪制。而目前时间线的国家元首和现实中一样是乔治六世，也就是现任女王伊丽莎白二世的父亲。看来本系列中的爱德华八世也被辛普森勾搭走了hhh。除此之外，对于利比里昂不断插手欧洲事务十分烦恼，国内意见似乎也分为了两派。这点在506小说中得以体现。",
+        "military": "不列颠尼亚分为陆海空三军，军力也十分强盛，尤其是海军。这点和现实如出一辙。不过，commonwealth成员国的军事人员也可以直接参加本国军队。例如没人要中队的伊丽莎白·贝林少尉，就出身于法尔威兰联邦，但却归属于不列颠尼亚空军。而本国军事人员也可以加入commonwealth成员国军队，接受训练后再回国。比如威尔玛·毕晓普中士。另外，还有不少欧洲其他国家的难民加入了不列颠尼亚军队。例如506中的罗莎莉·德·艾姆利寇特·德·古留涅少校（我老婆全名太长了）和伊莎贝尔·巴卡德尔少尉，两人分别出身自高卢和比利时卡。而魔女们的军服，也大致分为两种，一种是打底衬衫+西式上衣，后者款式大同小异，颜色倒是很多，有深绿色、棕色、奶白色和浅灰色；另一种是应该飞行服或飞行夹克，目前只出现过黑色的。当然，贝林穿的是一战的飞行服。不过，不列颠尼亚的空战魔女们的下半身倒是挺统一的，要么是黑色打底裤袜，要么是间色过膝长筒袜。",
+
+        "tags": ["国家", "不列颠尼亚"]
+    },
+    {
+        "id": 5,
+        "countryChineseName": "达基亚王国",
+        "countryEnglishName": "Kingdom of Dacia",
+        "images": "/wiki/Flag/Dacia.jpg",
+        "shortContents": "达基亚王国，对应现实中的罗马尼亚。达基亚为古罗马行省名。但和现实地图相比，少了相当一部分。这块地区大部分都归属于奥斯特马克。目前登场魔女只有一位，并且是一位贵族,即康斯坦汀·康塔固吉娜预备上尉。据说原本要加入506，但由于505成员和背后支援的扶桑皇国陆军强烈反对而未能实现。",
+        "tags": ["国家", "达基亚"]
+    },
+    {
+        "id": 6,
+        "countryChineseName": "法尔威兰联邦",
+        "countryEnglishName": "Commonwealth of Farawayland",
+        "images": "/wiki/Flag/Farawayland.jpg",
+        "shortContents": "法尔威兰联邦，对应现实中的加拿大，和现实相比，国土的变动很大。因为北美大陆变成了五角星形，所以非常不一样。法尔威兰这个名字似乎是来自英语的拼词，far away land，直译就是遥远的土地。国家实行君主立宪制，国家元首是不列颠尼亚的国王或女王。本国为盟友代培养了不少魔女。",
+        "tags": ["国家", "法尔威兰"]
+    },
+    {
+        "id": 7,
+        "countryChineseName": "扶桑皇国",
+        "countryEnglishName": "Empire of Fuso",
+        "images": "/wiki/Flag/Fuso.jpg",
+        "shortContents": "",
+        "territory": "",
+        "history": "",
+        "polity": "",
+        "military": "",
+
+        "tags": ["国家", "扶桑"]
+    },
+    {
+        "id": 8,
+        "countryChineseName": "高卢共和国",
+        "countryEnglishName": "Republic of Gallia",
+        "images": "/wiki/Flag/Gallia.jpg",
+        "shortContents": "",
+        "territory": "",
+        "history": "",
+        "polity": "",
+        "military": "",
+        
+        "tags": ["国家", "高卢"]
+    },
+    {
+        "id": 9,
+        "countryChineseName": "赫尔维提亚联邦",
+        "countryEnglishName": "Helvetia Confederation",
+        "images": "/wiki/Flag/Helvetia.jpg",
+        "shortContents": "赫尔维提亚联邦，对应现实中的瑞士，似乎列支敦士登也直接并入其中了。Helvetia是瑞士的拉丁语名称，源自古代赫尔维蒂部落。军工、医学和精密制造业发达。501的宫藤芳佳在该国的苏黎世学习医学。目前并没有魔女登场。",        
+        "tags": ["国家", "赫尔维提亚"]
+    },
+    {
+        "id": 10,
+        "countryChineseName": "伊斯帕尼亚王国",
+        "countryEnglishName": "Kingdom of Hispania",
+        "images": "/wiki/Flag/Hispania.jpg",
+        "shortContents": "伊斯帕尼亚王国，对应现实中的西班牙。Hispania这个名字来自于古罗马对伊比利亚半岛的称呼，尽管来源已经不可考究，但是在拉丁语中就是这个词。1936年曾发生小规模的异形军入侵战役，通称伊斯帕尼亚之战。由于各国协力而胜利。在高卢沦陷后成为最大的流亡政府驻地。另外，由于比利牛斯山脉的庇护，使得伊斯帕尼亚成为欧洲仅存的安全地带之一，涌入了大量难民。目前登场魔女只有一位，即504的安洁拉·萨拉斯·莱拉查宝中尉。",        
+        "tags": ["国家", "伊斯帕尼亚"]
+    },
+    {
+        "id": 11,
+        "countryChineseName": "卡尔斯兰帝国",
+        "countryEnglishName": "Empire of Karlsland",
+        "images": "/wiki/Flag/Karlsland.jpg",
+        "shortContents": "",
+        "territory": "",
+        "history": "",
+        "polity": "",
+        "military": "",       
+        "tags": ["国家", "卡尔斯兰"]
+    },
+    {
+        "id": 12,
+        "countryChineseName": "利比里昂合众国",
+        "countryEnglishName": "United States of Liberion",
+        "images": "/wiki/Flag/Liberion.jpg",
+        "shortContents": "",
+        "territory": "",
+        "history": "",
+        "polity": "",
+        "military": "",       
+        "tags": ["国家", "利比里昂"]
+    },
+    {
+        "id": 13,
+        "countryChineseName": "默西亚王国",
+        "countryEnglishName": "Kingdom of Moesia",
+        "images": "/wiki/Flag/Moesia.jpg",
+        "shortContents": "默西亚王国，对应现实中的保加利亚。领土基本和现实相同。Moesia这个名字来自于巴尔干半岛古代地理区域以及罗马行省。尽管和实际的地理区域相去甚远，不过名字是集成下来了。目前登场魔女只有一位，即505的斯托亚娜·斯托亚诺娃中尉。",      
+        "tags": ["国家", "默西亚"]
+    },
+    {
+        "id": 14,
+        "countryChineseName": "尼德兰王国",
+        "countryEnglishName": "Kingdom of Netherlands",
+        "images": "/wiki/Flag/Netherlands.jpg",
+        "shortContents": "尼德兰王国，对应现实中的荷兰。领土和现实中基本相同。Netherlands这个名字在现实中也是荷兰的正式名称，至于为什么翻译成荷兰，是因为该国最核心的省份Holland在各个方面的影响力最大，国际社会长期以Holland指代这个国家，中文翻译就沿用了这一习惯。而在本系列中，还是采用了正式名称称呼，以示区别。目前没有魔女登场，不过501动画第3季中有一集的故事发生在该国。",      
+        "tags": ["国家", "尼德兰"]
+    },
+    {
+        "id": 15,
+        "countryChineseName": "新泽兰联邦",
+        "countryEnglishName": "Commonwealth of Newzeland",
+        "images": "/wiki/Flag/Newzeland.jpg",
+        "shortContents": "新泽兰联邦，对应现实中的新西兰。领土和现实基本相同。这个名字和现实中只差了一个字母，估计只是为了区别2者吧。君主立宪制，名义上的国家元首是不列颠尼亚国王或女王。目前登场魔女只有1位，即光辉魔女的玛奈雅·玛塔华拉·哈特中士。",      
+        "tags": ["国家", "新泽兰"]
+    },
+    {
+        "id": 16,
+        "countryChineseName": "欧拉西亚帝国",
+        "countryEnglishName": "Empire of Orussia",
+        "images": "/wiki/Flag/Orussia.jpg",
+        "shortContents": "Orussia这个名字是Russia的变体拼写，来自于古代中国的拼写习惯。因为蒙古语中为了避免r开头，所以罗斯公国的Rus变成了Oruss。",
+        "territory": "",
+        "history": "",
+        "polity": "",
+        "military": "",     
+        "tags": ["国家", "欧拉西亚"]
+    },
+    {
+        "id": 17,
+        "countryChineseName": "奥斯特马克帝国",
+        "countryEnglishName": "Empire of Ostmark",
+        "images": "/wiki/Flag/Ostmark.jpg",
+        "shortContents": "奥斯特马克帝国，对应现实中的奥匈帝国。国土少了作品中属于威尼西亚的一部分，但多了整个塞尔维亚,以及罗马尼亚的一部分。Ostmark这名字来自于德语，直译为“东方边境”。早在查理大帝统治时期就有使用。奥斯特马克也曾是神圣罗马帝国的一部分。在19世纪，和卡尔斯兰皇帝争夺权力的过程中败下阵来，因而顺势独立。由于国内民族林立，奥斯特马克皇帝以对抗怪异为出发点，团结各个民族，并成为了团结的象征。1914年，前一次大战中，由于皇储战死，国境失守，奥斯特马克帝国国力大幅衰减。军事力量也难以恢复。以至于第二次异形军大战时，需要依靠各国的派遣部队才能勉强应付。按照目前剧情的进度，奥斯特马克帝国是少数还处于异形军势力范围的国家。目前登场魔女有8位。",   
+        "tags": ["国家", "奥斯特马克"]
+    },
+    {
+        "id": 18,
+        "countryChineseName": "罗马涅公国",
+        "countryEnglishName": "Duchy of Romagna",
+        "images": "/wiki/Flag/Romagna.jpg",
+        "shortContents": "", 
+        "territory": "",
+        "history": "",
+        "polity": "",
+        "military": "",  
+        "tags": ["国家", "罗马涅"]
+    },
+    {
+        "id": 19,
+        "countryChineseName": "暹罗王国",
+        "countryEnglishName": "Kingdom of Siam",
+        "images": "/wiki/Flag/Siam.jpg",
+        "shortContents": "暹罗王国，对应现实中的泰国。国土包含了泰国和一部分马来西亚。Siam来自于梵语，同时也是泰国1939年之前的正式国名。君主制，王权很大。目前登场魔女只有1位，即克拉玛斯·布拉加姆上士。",   
+        "tags": ["国家", "暹罗"]
+    },
+    {
+        "id": 20,
+        "countryChineseName": "南非共和国",
+        "countryEnglishName": "Republic of South Africa",
+        "images": "/wiki/Flag/SouthAfrica.jpg",
+        "shortContents": "南非共和国，对应现实中的南非。从不列颠尼亚独立。具体信息不明。目前登场魔女只有1位，即马尔塞尤的私兵玛蒂尔达。",   
+        "tags": ["国家", "南非"]
+    },
+    {
+        "id": 21,
+        "countryChineseName": "索穆斯共和国",
+        "countryEnglishName": "Republic of Suomus",
+        "images": "/wiki/Flag/Suomus.jpg",
+        "shortContents": "", 
+        "territory": "",
+        "history": "",
+        "polity": "",
+        "military": "",  
+        "tags": ["国家", "索穆斯"]
+    },
+    {
+        "id": 22,
+        "countryChineseName": "威尼西亚公国",
+        "countryEnglishName": "Duchy of Venezia",
+        "images": "/wiki/Flag/Venezia.jpg",
+        "shortContents": "", 
+        "territory": "",
+        "history": "",
+        "polity": "",
+        "military": "",  
+        "tags": ["国家", "威尼西亚"]
+    }
+]

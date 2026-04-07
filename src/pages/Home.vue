@@ -1,5 +1,20 @@
 <template>
-    <div class="content">
-      <h1>SW-WIKI中文资料站</h1>
+    <div class="content home">
+        <h1>欢迎来到强袭魔女系列中文资料站（开发中）</h1>
     </div>
-  </template>
+</template>
+
+<script setup lang="ts"></script>
+
+<style scoped>
+  .home {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+  .home h1 {
+    display: block;
+    font-size: 52px;
+    text-align: center;
+  }
+</style>

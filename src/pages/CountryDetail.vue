@@ -17,7 +17,6 @@
       <div class="side">
         <img :src="country.images" class="flag" />
       </div>
-
     </div>
 
     <!-- 找不到国家 -->
@@ -25,39 +24,40 @@
       <h2>未找到该国家</h2>
     </div>
   </div>
+
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { marked } from 'marked'
-import raw from '../data/countryInfo.json'
-
-/* ✅ 定义类型 */
-type Country = {
-  id: number
-  countryChineseName: string
-  countryEnglishName: string
-  images: string
-  territory: string
-  history: string
-  polity: string
-  military: string
-}
-
-/* ✅ 让 TS 认识 JSON */
-const countries = raw as Country[]
-
-const route = useRoute()
-
-/* ✅ 找到当前国家 */
-const country = countries.find(
-  (c) => c.id === Number(route.params.id)
-)
-
-/* ✅ Markdown 渲染 */
-const render = (text: string) => {
-  return marked(text || '')
-}
+  import { useRoute } from 'vue-router'
+  import { marked } from 'marked'
+  import raw from '../data/countryInfo.json'
+  
+  /* ✅ 定义类型 */
+  type Country = {
+    id: number
+    countryChineseName: string
+    countryEnglishName: string
+    images: string
+    territory: string
+    history: string
+    polity: string
+    military: string
+  }
+  
+  /* ✅ 让 TS 认识 JSON */
+  const countries = raw as Country[]
+  
+  const route = useRoute()
+  
+  /* ✅ 找到当前国家 */
+  const country = countries.find(
+    (c) => c.id === Number(route.params.id)
+  )
+  
+  /* ✅ Markdown 渲染 */
+  const render = (text: string) => {
+    return marked(text || '')
+  }
 </script>
 
 <style>
@@ -103,6 +103,7 @@ const render = (text: string) => {
 .info p {
   line-height: 1.6;
   text-align-last: left;
+  text-indent: 2em;
 }
 
 .info h2 {

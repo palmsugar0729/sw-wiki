@@ -1,0 +1,133 @@
+<template>
+    <footer class="footer">
+        <div class="copyRight">
+            © 2026 Felayna
+            <br>
+            本网站图文均出自官方资料或自己制作编写，仅作为学习交流用<br>
+            不得擅自将网页内容用于商业或AI学习用途，违者后果自负，本网站不承担任何责任<br>
+            本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传<br>
+            若本站收录的内容无意侵犯了贵司版权，请联系我们，我们会及时处理和回复，谢谢
+        </div>
+        <div class="links">
+            <span @click="showContact" id="conUs">联系我们</span>
+            <li></li>
+            <span @click="showDonate = true">请求赞助</span>
+            <li></li>
+            <a href="https://pan.baidu.com/s/1qjjEgb8rYBOtyIajOQ0v7w?pwd=n4pn" target="_blank">小说资源</a>
+            <li></li>
+            <a href="https://www.bilibili.com/video/BV1Wu411e7k9/?vd_source=8f84b37a43510b27580f36113dd5b63c" target="_blank">介绍视频</a>
+            <li></li>
+            <span @click="showText" id="resouseLink">视频资源</span>
+        </div>
+        <div class="clock">
+            <Clock />
+        </div>
+    </footer>
+    <div v-if="showDonate" class="modal">
+      <div class="modal-content">
+        <h3>赞助支持</h3>
+        <p>如果这个网站对你有帮助，可以考虑支持一下维护者 🙏<br>
+            本页面为本站唯一赞助入口，请通过本站进行支持，谨防冒用。</p>
+
+        <img src="/donate/wechat.jpg" class="qrcode" />
+        <img src="/donate/alipay.jpg" class="qrcode" />
+
+        <button @click="showDonate = false">关闭</button>
+      </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+    import Clock from '../components/clockParts.vue'
+    const showContact = () => {
+        alert('邮箱：felaynastewart@outlook.com\nQQ:2686035749\nBilibili:felayna')
+    }
+    const showText = () => {
+        alert('本站不提供任何在线视频或网盘视频资源，敬请谅解。')
+    }
+    // 捐款页面弹窗
+    import { ref } from 'vue'
+    const showDonate = ref(false)
+</script>
+
+<style scoped>
+        .footer {
+            display: flex;
+            flex-direction: row;
+            padding-left: 5px;
+
+            .copyRight {
+                display: flex;
+                width: 530px;
+                padding-top: 25px;
+                padding-left: 5px;
+                font:12px Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+            }
+
+            .links {
+                display: flex;
+                width: 600px;
+                height: 60px;
+                margin-top: 60px;
+                margin-left: 250px;
+                padding-left: 50px;
+
+                li {
+                    border-left: 1px solid #696969;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+                a,li,span {
+                    display: block;
+                    margin-left: 10px;
+                    width: fit-content;
+                    height: 30px;
+                    justify-content: center; /* 水平居中 */
+                    align-items: center;     /* 垂直居中 */
+                }
+            }
+
+            a:hover,span:hover {
+                text-decoration:underline;
+                color: red;
+                cursor: pointer;
+            }
+
+            .clock {
+                margin-top: 20px;
+                padding-left: 50px;
+            }
+    }
+        /* 背景遮罩 */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 内容框 */
+    .modal-content {
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    /* 二维码 */
+    .qrcode {
+      width: 150px;
+      margin: 10px;
+    }
+</style>

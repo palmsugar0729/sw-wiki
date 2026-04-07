@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -157,8 +161,8 @@ code {
 }
 
 #app {
-  width: 1126px;
-  max-width: 100%;
+  width: 100%;
+  /* max-width: 100%; */
   margin: 0 auto;
   text-align: center;
   border-inline: 1px solid var(--border);
@@ -294,3 +298,5 @@ code {
     border-right-color: var(--border);
   }
 }
+
+

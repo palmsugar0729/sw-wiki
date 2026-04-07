@@ -3,10 +3,12 @@
     <Sidebar />
     <router-view />
   </div>
+  <Footer />
 </template>
 
 <script setup lang="ts">
-import Sidebar from './components/Sidebar.vue'
+  import Sidebar from './components/Sidebar.vue'
+  import Footer from './components/footer.vue';
 </script>
 
 <style>

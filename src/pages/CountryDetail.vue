@@ -30,7 +30,7 @@
 <script setup lang="ts">
   import { useRoute } from 'vue-router'
   import { marked } from 'marked'
-  import raw from '../data/countryInfo.json'
+  import raw from '../data/CountryInfo.json'
   
   /* ✅ 定义类型 */
   type Country = {

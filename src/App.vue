@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
   import Sidebar from './components/Sidebar.vue'
-  import Footer from './components/footer.vue';
+  import Footer from './components/Footer.vue';
 </script>
 
 <style>

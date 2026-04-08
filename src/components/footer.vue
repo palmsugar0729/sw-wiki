@@ -60,7 +60,7 @@
                 display: flex;
                 width: 530px;
                 padding-top: 25px;
-                padding-left: 5px;
+                padding-left: 6px;
                 font:12px Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
             }
 

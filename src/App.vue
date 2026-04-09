@@ -1,9 +1,17 @@
 <template>
-  <div class="layout">
-    <Sidebar />
-    <router-view />
+  <div id="app">
+    <!-- 上半部分：左右布局 -->
+    <div class="layout">
+      <Sidebar />
+      <div class="main">
+        <router-view />
+      </div>
+    </div>
+
+    <!-- 底部：整个底部页面 -->
+     <Footer />
   </div>
-  <Footer />
+    
 </template>
 
 <script setup lang="ts">
@@ -13,7 +21,6 @@
 
 <style>
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
   background: #0ea5e9;
   color: white;
@@ -21,14 +28,18 @@ body {
 
 .layout {
   display: flex;
-  height: 100vh;
+  flex: 1;
 }
 
-.sidebar {
+.layout .main {
+  flex: 1;
+}
+
+#app .layout .sidebar {
   width: 250px;
   background: #0284c7;
   padding: 15px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .sidebar h2 {
@@ -52,7 +63,7 @@ body {
 .content {
   flex: 1;
   padding: 20px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .header {

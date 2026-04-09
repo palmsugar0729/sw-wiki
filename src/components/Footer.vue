@@ -51,58 +51,62 @@
 </script>
 
 <style scoped>
-        .footer {
-            display: flex;
-            flex-direction: row;
-            padding-left: 5px;
-
-            .copyRight {
-                display: flex;
-                width: 530px;
-                padding-top: 25px;
-                padding-left: 6px;
-                font:12px Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
-            }
-
-            .links {
-                display: flex;
-                width: 600px;
-                height: 60px;
-                margin-top: 60px;
-                margin-left: 250px;
-                padding-left: 50px;
-
-                li {
-                    border-left: 1px solid #696969;
-                }
-
-                a {
-                    text-decoration: none;
-                    color: #fff;
-                }
-
-                a,li,span {
-                    display: block;
-                    margin-left: 10px;
-                    width: fit-content;
-                    height: 30px;
-                    justify-content: center; /* 水平居中 */
-                    align-items: center;     /* 垂直居中 */
-                }
-            }
-
-            a:hover,span:hover {
-                text-decoration:underline;
-                color: red;
-                cursor: pointer;
-            }
-
-            .clock {
-                margin-top: 20px;
-                padding-left: 50px;
-            }
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-around; 
+      flex-wrap: wrap;                
+      margin: 30px 0;
+      gap: 20px;
     }
-        /* 背景遮罩 */
+
+    /* 左侧版权 */
+    .copyRight {
+      flex: 0 0 auto;
+      text-align: left;
+      padding-left: 6px;
+      min-width: 200px;
+      font: 12px Microsoft YaHei, Heiti SC, tahoma, arial, sans-serif;
+    }
+
+    /* 中间链接 */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .links li {
+      border-left: 1px solid #696969;
+      padding-left: 10px;
+    }
+
+    /* 去掉第一个竖线 */
+    .links li:first-child {
+      border-left: none;
+    }
+
+    /* 链接样式 */
+    .links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+      color: red;
+    }
+
+    /* 右侧时间 */
+    .clock {
+      min-width: 120px;
+      text-align: right;
+    }
+    /* 背景遮罩 */
     .modal {
       position: fixed;
       top: 0;
@@ -110,12 +114,10 @@
       width: 100%;
       height: 100%;
       background: rgba(0,0,0,0.6);
-
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
+    }   
     /* 内容框 */
     .modal-content {
       background: white;
@@ -123,8 +125,7 @@
       padding: 20px;
       border-radius: 10px;
       text-align: center;
-    }
-
+    }   
     /* 二维码 */
     .qrcode {
       width: 150px;

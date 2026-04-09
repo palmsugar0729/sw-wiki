@@ -20,7 +20,7 @@
   const router = useRouter()
 
   const goDetail = (id: number) => {
-    router.push(`//${id}`)
+    router.push(`/unit/${id}`)
   }
 </script>
 

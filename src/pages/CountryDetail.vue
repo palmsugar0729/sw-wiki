@@ -46,7 +46,6 @@
   
   /* ✅ 让 TS 认识 JSON */
   const countries = raw as Country[]
-  
   const route = useRoute()
   
   /* ✅ 找到当前国家 */
@@ -61,52 +60,52 @@
 </script>
 
 <style>
-.detail-container {
-  display: flex;
-  gap: 20px;
-}
-
-/* 左侧 */
-.info {
-  flex: 2;
-}
-
-/* 右侧 */
-.side {
-  flex: 1;
-}
-
-/* 国旗 */
-.flag {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* 标题 */
-.info h1 {
-  margin-bottom: 5px;
-}
-
-.info h3 {
-  margin-top: 25px;
-  margin-bottom: 15px;
-  color: #ddd;
-}
-
-/* Markdown 内容优化 */
-.info img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin: 10px 0;
-}
-
-.info p {
-  line-height: 1.6;
-  text-align-last: left;
-  text-indent: 2em;
-}
-
-.info h2 {
-  margin-top: 20px;
-}
+  .detail-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* 左侧 */
+  .info {
+    flex: 2;
+  }
+  
+  /* 右侧 */
+  .side {
+    flex: 1;
+  }
+  
+  /* 国旗 */
+  .flag {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  /* 标题 */
+  .info h1 {
+    margin-bottom: 5px;
+  }
+  
+  .info h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #ddd;
+  }
+  
+  /* Markdown 内容优化 */
+  .info img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+  
+  .info p {
+    line-height: 1.6;
+    text-align: left;
+    text-indent: 2em;
+  }
+  
+  .info h2 {
+    margin-top: 20px;
+  }
 </style>

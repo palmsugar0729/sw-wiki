@@ -90,13 +90,13 @@
     }
 
     /* 链接样式 */
-    .links a {
+    .links a, span {
       text-decoration: none;
       color: #fff;
-      font-size: 14px;
+      font-size: 18px;
     }
 
-    .links a:hover {
+    .links span:hover, a:hover {
       text-decoration: underline;
       color: red;
     }

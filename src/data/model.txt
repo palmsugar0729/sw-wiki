@@ -1,0 +1,66 @@
+国家信息
+{
+        "id": 
+        "countryChineseName": "",
+        "countryEnglishName": "",
+        "images": "",
+        "shortContents": "",
+        "territory": "",
+        "history": "",
+        "polity": "",
+        "military": "",
+        "tags": []
+    }
+
+部队信息
+{
+        "id": "",
+        "unitChineseName": "",
+        "unitEnglishName": "",
+        "images": "",
+        "ChineseNickName": "",
+        "EnglishNickName": "",
+        "baseZone": "",
+        "under": "",
+        "responsibility": "",
+        "commander": "",
+        "captain": "",
+        "members": "",
+        "history": "",
+        "tags": []
+    },
+
+人物信息
+{
+        "id": "007",
+        "info": [
+            { "label": "姓名", "value": "" },
+                { "label": "外语名", "value": "" },
+                { "label": "爱称", "value": "" },
+                { "label": "外号", "value": "" },
+                { "label": "生日", "value": "" },
+                { "label": "年龄", "value": "" },
+                { "label": "身高", "value": "" },
+                { "label": "使魔", "value": "" },
+                { "label": "固有魔法", "value": "" },
+                { "label": "军衔", "value": "" },
+                { "label": "所属", "value": "" },
+                { "label": "原队", "value": "" },
+                { "label": "装备", "value": [] },
+                { "label": "武器", "value": [] },
+                { "label": "原型", "value": "" },
+                { "label": "声优", "value": "" }
+            ],
+        "images": {
+            "charaIll1": "full1",
+            "emblem": "emblem",
+            "shield": "shield"
+        },
+        "shortContent": "",
+        "content": [
+            {"type": "text", "value": ""},
+            {"type": "image", "value": ""},
+        ],
+        "gallery": [],
+        "tag": []
+    },

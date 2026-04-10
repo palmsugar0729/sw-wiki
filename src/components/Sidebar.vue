@@ -9,7 +9,7 @@
     <router-link to="/world">世界观</router-link>
     <router-link to="/countries">国家介绍</router-link>
     <router-link to="/units">部队介绍</router-link>
-
+    <router-link to="/characters">人物介绍</router-link>
   </div>
 </template>
 

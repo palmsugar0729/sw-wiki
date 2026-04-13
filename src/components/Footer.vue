@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <div class="copyRight">
-            © 2026 Felayna
+            © 2026 Felayna&PalmSugar
             <br>
             本网站图文均出自官方资料或自己制作编写，仅作为学习交流用<br>
             不得擅自将网页内容用于商业或AI学习用途，违者后果自负，本网站不承担任何责任<br>
@@ -9,7 +9,7 @@
             若本站收录的内容无意侵犯了贵司版权，请联系我们，我们会及时处理和回复，谢谢
         </div>
         <div class="links">
-            <span @click="showContact" id="conUs">联系我们</span>
+            <span @click="showContact = true" id="conUs">联系我们</span>
             <li></li>
             <span @click="showDonate = true">请求赞助</span>
             <li></li>
@@ -23,11 +23,26 @@
             <Clock />
         </div>
     </footer>
+
+    <div v-if="showContact" class="modal">
+      <div class="modal-content">
+        <h3>联系方式</h3>
+        <p>
+          邮箱：palmsugar0729@foxmail.com<br>
+          QQ:2686035749<br>
+          工作微信：Palm_Sugar29<br>
+          Bilibili ID:felayna<br>
+          合作联络、事务联络请联系上方邮箱、QQ或微信。
+        </p>
+        <button @click="showContact = false">关闭</button>
+      </div>
+    </div>
+
     <div v-if="showDonate" class="modal">
       <div class="modal-content">
-        <h3>赞助支持</h3>
-        <p>如果这个网站对你有帮助，可以考虑支持一下维护者 🙏<br>
-            本页面为本站唯一赞助入口，请通过本站进行支持，谨防冒用。</p>
+        <h3>打赏支持</h3>
+        <p>如果这个网站对你有帮助，可以考虑支持一下 🙏<br>
+            本页面为本站唯一打赏入口，请通过本站进行支持，谨防冒用。</p>
 
         <img src="/donate/wechat.jpg" class="qrcode" />
         <img src="/donate/alipay.jpg" class="qrcode" />
@@ -36,17 +51,18 @@
       </div>
     </div>
 </template>
-
 <script setup lang="ts">
+    import { ref } from 'vue'
     import Clock from '../components/clockParts.vue'
-    const showContact = () => {
-        alert('邮箱：felaynastewart@outlook.com\nQQ:2686035749\nBilibili:felayna')
-    }
+
+    // 联系方式弹窗
+    const showContact = ref(false)
+    
     const showText = () => {
         alert('本站不提供任何在线视频或网盘视频资源，敬请谅解。')
     }
+
     // 捐款页面弹窗
-    import { ref } from 'vue'
     const showDonate = ref(false)
 </script>
 

@@ -3,14 +3,14 @@
     <div class="detail-container" v-if="country">
       
       <!-- 左侧内容 -->
-      <div class="info">
+      <div class="info" @click="handleLinkClick">
         <h1>{{ country.countryChineseName }}</h1>
         <h3>{{ country.countryEnglishName }}</h3>
 
-        <div v-html="render(country.territory)"></div>
-        <div v-html="render(country.history)"></div>
-        <div v-html="render(country.polity)"></div>
-        <div v-html="render(country.military)"></div>
+        <div v-html="renderText(country.territory)"></div>
+        <div v-html="renderText(country.history)"></div>
+        <div v-html="renderText(country.polity)"></div>
+        <div v-html="renderText(country.military)"></div>
       </div>
 
       <!-- 右侧国旗 -->
@@ -28,9 +28,9 @@
 </template>
 
 <script setup lang="ts">
-  import { useRoute } from 'vue-router'
-  import { marked } from 'marked'
+  import { useRoute, useRouter } from 'vue-router'
   import raw from '../data/CountryInfo.json'
+  import { renderText } from '../utils/render'
   
   /* ✅ 定义类型 */
   type Country = {
@@ -47,16 +47,27 @@
   /* ✅ 让 TS 认识 JSON */
   const countries = raw as Country[]
   const route = useRoute()
+  const router = useRouter()
   
   /* ✅ 找到当前国家 */
   const country = countries.find(
     (c) => c.id === Number(route.params.id)
   )
+
+  // 处理内链接点击
+  const handleLinkClick = (e: Event) => {
+      const el = e.target as HTMLElement
+
+      if (el.classList.contains('wiki-link')) {
+        const type = el.dataset.type
+        const id = el.dataset.id
+
+        if (!type || !id) return
+
+        router.push(`/${type}/${id}`)
+      }
+    }
   
-  /* ✅ Markdown 渲染 */
-  const render = (text: string) => {
-    return marked(text || '')
-  }
 </script>
 
 <style>

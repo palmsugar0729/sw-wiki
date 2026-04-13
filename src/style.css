@@ -299,4 +299,15 @@ code {
   }
 }
 
+/* 内链接模块 */
+.wiki-link {
+  color:  #8A6BBE;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-items: center;
+}
 
+.wiki-link:hover {
+  color: #facc15;
+  text-decoration: underline;
+}

@@ -9,7 +9,8 @@
         "history": "",
         "polity": "",
         "military": "",
-        "tags": []
+        "tags": [],
+        "alias": []
     }
 
 部队信息
@@ -27,7 +28,8 @@
         "captain": "",
         "members": "",
         "history": "",
-        "tags": []
+        "tags": [],
+        "alias": []
     },
 
 人物信息
@@ -62,5 +64,6 @@
             {"type": "image", "value": ""},
         ],
         "gallery": [],
-        "tag": []
+        "tag": [],
+        "alias": []
     },

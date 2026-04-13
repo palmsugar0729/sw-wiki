@@ -7,56 +7,57 @@
     <div class="top-section">
 
       <!-- 左侧：信息 -->
-      <div class="info-table">
+      <div class="info-table" @click="handleLinkClick">
+        
 
         <div class="row">
           <div class="label">部队名</div>
-          <div class="value">{{ unit.unitChineseName }}</div>
+          <div class="value" >{{ unit.unitChineseName }}</div>
         </div>
 
         <div class="row">
           <div class="label">英文名</div>
-          <div class="value" v-html="render(unit.unitEnglishName)"></div>
+          <div class="value" v-html="renderText(unit.unitEnglishName)"></div>
         </div>
 
         <div class="row">
           <div class="label">外号</div>
-          <div class="value" v-html="render(unit.ChineseNickName)"></div>
+          <div class="value" v-html="renderText(unit.ChineseNickName)"></div>
         </div>
 
         <div class="row">
           <div class="label">英文外号</div>
-          <div class="value" v-html="render(unit.EnglishNickName)"></div>
+          <div class="value" v-html="renderText(unit.EnglishNickName)"></div>
         </div>
 
         <div class="row">
           <div class="label">基地</div>
-          <div class="value" v-html="render(unit.baseZone)"></div>
+          <div class="value" v-html="renderText(unit.baseZone)"></div>
         </div>
 
         <div class="row">
           <div class="label">隶属</div>
-          <div class="value" v-html="render(unit.under)"></div>
+          <div class="value" v-html="renderText(unit.under)"></div>
         </div>
 
         <div class="row">
           <div class="label">负责空域</div>
-          <div class="value" v-html="render(unit.responsibility)"></div>
+          <div class="value" v-html="renderText(unit.responsibility)"></div>
         </div>
 
         <div class="row">
           <div class="label">司令</div>
-          <div class="value" v-html="render(unit.commander)"></div>
+          <div class="value" v-html="renderText(unit.commander)"></div>
         </div>
 
         <div class="row">
           <div class="label">战斗队长</div>
-          <div class="value" v-html="render(unit.captain)"></div>
+          <div class="value" v-html="renderText(unit.captain)"></div>
         </div>
 
         <div class="row">
           <div class="label">成员</div>
-          <div class="value" v-html="render(unit.members)"></div>
+          <div class="value" v-html="renderText(unit.members)"></div>
         </div>
 
         </div>
@@ -69,8 +70,8 @@
     </div>
 
     <!-- 下半部分：部队介绍 -->
-    <div class="introduction">
-      <div v-html="render(unit.history)"></div>
+    <div class="introduction" @click="handleLinkClick">
+      <div v-html="renderText(unit.history)"></div>
     </div>
   </div>
 
@@ -82,9 +83,9 @@
 </template>
 
 <script setup lang="ts">
-  import { useRoute } from 'vue-router'
-  import { marked } from 'marked'
+  import { useRoute, useRouter } from 'vue-router'
   import raw from '../data/UnitInfo.json'
+  import { renderText } from '../utils/render'
   
   /* ✅ 定义类型 */
   type Unit = {
@@ -103,19 +104,29 @@
     history: string
   }
   
-  /* ✅ 让 TS 认识 JSON */
+  /* 数据 */
   const units = raw as Unit[]
   const route = useRoute()
+  const router = useRouter()
   
-  /* ✅ 找到当前国家 */
+  /* ✅ 找到当前部队 */
   const unit = units.find(
     (u) => u.id === Number(route.params.id)
   )
-  
-  /* ✅ Markdown 渲染 */
-  const render = (text: string) => {
-    return marked(text || '')
-  }
+
+  // 处理内链接点击
+  const handleLinkClick = (e: Event) => {
+      const el = e.target as HTMLElement
+
+      if (el.classList.contains('wiki-link')) {
+        const type = el.dataset.type
+        const id = el.dataset.id
+
+        if (!type || !id) return
+
+        router.push(`/${type}/${id}`)
+      }
+    }
 </script>
 
 <style>
@@ -125,7 +136,6 @@
     margin-bottom: 60px;
     color: black;
   }
-
 
   /* 顶部区域：左右布局 */
   .top-section {

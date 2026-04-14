@@ -54,9 +54,10 @@
                 { "label": "声优", "value": "" }
             ],
         "images": {
-            "charaIll1": "full1",
-            "emblem": "emblem",
-            "shield": "shield"
+            "charaIll1": "立绘1",
+            "emblem": "徽章",
+            "shield": "护盾",
+            "icon": "头像"
         },
         "shortContent": "",
         "content": [

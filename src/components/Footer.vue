@@ -19,6 +19,14 @@
             <li></li>
             <span @click="showText" id="resouseLink">视频资源</span>
         </div>
+        <div class="visit-count">
+          <span id="busuanzi_container_site_pv">
+            本站总访问量：<span id="busuanzi_value_site_pv"></span> 次
+          </span>
+          <span id="busuanzi_container_site_uv">
+            | 访客数：<span id="busuanzi_value_site_uv"></span> 人
+          </span>
+        </div>
         <div class="clock">
             <Clock />
         </div>
@@ -117,11 +125,18 @@
       color: red;
     }
 
+    /* 来访人数统计 */
+    .visit-count {
+      min-width: 80px;
+      margin-left: 50px;
+    }
+
     /* 右侧时间 */
     .clock {
-      min-width: 120px;
+      min-width: 80px;
       text-align: right;
     }
+
     /* 背景遮罩 */
     .modal {
       position: fixed;

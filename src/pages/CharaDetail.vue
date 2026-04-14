@@ -65,12 +65,33 @@
       <!-- 下 -->
       <div class="gallery" v-if="character.gallery?.length">
         <h2>美图一览</h2>
-  
+
         <img
-          v-for="img in character.gallery"
-          :key="img"
+          v-for="(img, i) in character.gallery"
+          :key="i"
           :src="getImage(character.id, img)"
+          class="thumb"
+          @click="openPreview(i)"
         />
+      </div>
+        <!-- 大图预览 -->
+        <div v-if="previewVisible" class="preview" @click.self="closePreview">
+
+        <!-- 左按钮 -->
+        <button class="nav left" @click.stop="prevImage">‹</button>
+
+        <!-- 图片（带动画） -->
+        <transition :name="transitionName">
+          <img
+            :key="currentIndex"
+            :src="getImage(character.id, character.gallery[currentIndex])"
+            class="preview-img"
+          />
+        </transition>
+
+        <!-- 右按钮 -->
+        <button class="nav right" @click.stop="nextImage">›</button>
+
       </div>
   
     </div>
@@ -83,7 +104,7 @@
 <script setup lang="ts">
     import { useRoute, useRouter } from 'vue-router'
     import raw from '../data/CharaInfo.json'
-    import { ref, computed, watch } from 'vue'
+    import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
     import { renderText } from '../utils/render'
     
     /* 类型 */
@@ -165,6 +186,54 @@
         if (key === 'icon') return '头像'
         return key
     }
+
+    /* 大图预览 */
+    const previewVisible = ref(false)
+    const currentIndex = ref(0)
+    const transitionName = ref('slide-left')
+
+    const openPreview = (index: number) => {
+      currentIndex.value = index
+      previewVisible.value = true
+    }
+
+    const closePreview = () => {
+      previewVisible.value = false
+    }
+
+    const galleryList = computed(() => character.value?.gallery || [])
+
+    /* 👉 下一张 */
+    const nextImage = () => {
+      transitionName.value = 'slide-left'
+      currentIndex.value =
+        (currentIndex.value + 1) % galleryList.value.length
+    }
+
+    /* 👉 上一张 */
+    const prevImage = () => {
+      transitionName.value = 'slide-right'
+      currentIndex.value =
+        (currentIndex.value - 1 + galleryList.value.length) %
+        galleryList.value.length
+    }
+
+    /* 👉 键盘支持 */
+    const handleKey = (e: KeyboardEvent) => {
+      if (!previewVisible.value) return
+    
+      if (e.key === 'ArrowRight') nextImage()
+      if (e.key === 'ArrowLeft') prevImage()
+      if (e.key === 'Escape') closePreview()
+    }
+
+    onMounted(() => {
+      window.addEventListener('keydown', handleKey)
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('keydown', handleKey)
+    })
 </script>
   
 <style scoped>
@@ -275,30 +344,102 @@
     }
 
     /* ===== 图集 ===== */
+    /* 图集网格 */
     .gallery {
+      display: grid;
       margin-top: 40px;
+      grid-template-columns: repeat(auto-fill, 120px);
+      gap: 10px;
     }
 
     .gallery h2 {
       margin-bottom: 10px;
     }
 
-    /* 图集网格（比 flex 更整齐） */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 10px;
-    }
-
-    .gallery img {
+    .thumb {
       width: 100%;
-      border-radius: 6px;
       cursor: pointer;
-      transition: 0.2s;
+      transition: transform 0.2s;
     }
 
-    /* 悬浮效果 */
-    .gallery img:hover {
-      transform: scale(1.05);
+    .thumb:hover {
+      transform: scale(1.1);
     }
+
+    /* 预览层 */
+    .preview {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
+    }
+
+    .preview-img {
+      max-width: 85%;
+      max-height: 85%;
+      position: absolute;
+    }
+
+    /* 左右按钮 */
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      color: white;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .nav.left {
+      left: 20px;
+    }
+
+    .nav.right {
+      right: 20px;
+    }
+
+    /* 轮播动画 */
+    /* 👉 左滑（下一张） */
+    .slide-left-enter-active,
+    .slide-left-leave-active {
+      transition: all 0.3s ease;
+    }
+
+    .slide-left-enter-from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    .slide-left-leave-to {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    /* 👉 右滑（上一张） */
+    .slide-right-enter-active,
+    .slide-right-leave-active {
+      transition: all 0.3s ease;
+    }
+
+    .slide-right-enter-from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .slide-right-leave-to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
 </style>

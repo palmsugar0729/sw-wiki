@@ -12,13 +12,19 @@
             <td class="label">{{ item.label }}</td>
   
             <td class="value">
-              <template v-if="Array.isArray(item.value)"  @click="handleLinkClick">
-                <div v-for="(v, i) in item.value" :key="i" v-html="renderText(v)">
+              <template v-if="Array.isArray(item.value)">
+                <div v-for="(v, i) in item.value" 
+                :key="i" 
+                v-html="renderText(v)"
+                @click="handleLinkClick"
+              >
                 </div>
               </template>
   
               <template v-else>
-                <span v-html="renderText(item.value)"></span>
+                <span 
+                v-html="renderText(item.value)"
+                @click="handleLinkClick"></span>
               </template>
             </td>
           </tr>

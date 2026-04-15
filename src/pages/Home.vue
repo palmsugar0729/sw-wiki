@@ -1,6 +1,10 @@
 <template>
     <div class="content home">
-        <h1>欢迎来到强袭魔女系列中文资料站（开发中）</h1>
+        <h1>欢迎来到强袭魔女系列中文资料站</h1>
+        <div class="infoBox">
+          <div class="news"></div>
+          <div class="recent"></div>
+        </div>
     </div>
 </template>
 
@@ -14,7 +18,7 @@
   }
   .home h1 {
     display: block;
-    font-size: 52px;
+    font-size: 48px;
     text-align: center;
   }
 </style>

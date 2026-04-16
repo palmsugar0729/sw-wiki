@@ -81,7 +81,7 @@
         />
       </div>
         <!-- 大图预览 -->
-        <div v-if="previewVisible" class="preview" @click.self="closePreview">
+      <div v-if="previewVisible" class="preview" @click.self="closePreview">
 
         <!-- 左按钮 -->
         <button class="nav left" @click.stop="prevImage">‹</button>

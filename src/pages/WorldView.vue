@@ -1,13 +1,15 @@
 <template>
-  <div class="content">
-    <div class="detail-container">
-      
-      <div v-for="item in views" :key="item.id" class="section">
-        <h1>{{ item.title }}</h1>
-        <p v-html="render(item.content)"></p>
-      </div>
+  <div class="page-bg">
+      <div class="page-content">
+        <div class="detail-container">
 
-    </div>
+          <div v-for="item in views" :key="item.id" class="section">
+            <h1>{{ item.title }}</h1>
+            <p v-html="render(item.content)"></p>
+          </div>
+
+        </div>
+      </div>
   </div>
 </template>
 
@@ -31,9 +33,14 @@
 <style scoped>
   .detail-container {
     display: block;
-    max-width: 900px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.78);
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 200px;
+    transition: all 0.2s ease;
   }
 
   /* 每一块世界观 */
@@ -41,12 +48,15 @@
     margin-bottom: 60px;
   }
 
+
   /* 标题 */
-  h1 {
+  .section h1 {
     font-size: 40px;
     margin-bottom: 15px;
     border-bottom: 2px solid rgba(255,255,255,0.3);
     padding-bottom: 8px;
+    color: #000;
+    font-weight: bold;
   }
 
   /* 段落 */
@@ -55,5 +65,7 @@
     line-height: 1.8;
     text-indent: 2em;
     text-align: left;
+    color: #0284c7;
+    font-weight: bold;
   }
 </style>

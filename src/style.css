@@ -61,7 +61,7 @@ body {
 h1,
 h2 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: bold;
   color: var(--text-h);
 }
 
@@ -310,4 +310,64 @@ code {
 .wiki-link:hover {
   color: #facc15;
   text-decoration: underline;
+}
+
+/* 背景图 */
+.page-bg {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.page-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image: url('/wiki/worldMap.jpg');
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(6px);
+  opacity: 0.5;
+
+  z-index: 0;
+}
+
+/* 内容层 */
+.page-content {
+  width: 100%;
+  max-width: 1600px;
+  margin: 40px;
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* list卡片 */
+.card {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card:hover {
+  background: rgba(217, 52, 72, 0.7);
+}
+
+.shortIntro, h3 {
+  font-weight: bold;
+}
+
+/* 页面标题 */
+.page-content h1 {
+  margin-bottom: 30px;
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: #facc15;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }

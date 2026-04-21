@@ -25,5 +25,23 @@
         "content": "USA GI （“Bunny” in Japanese）",
         "images": ["n003"],
         "link": "https://x.com/humikane/status/2041872020917686695"
+      },
+      {
+        "id": "n004",
+        "type": "tweet", 
+        "date": "2026-04-19",
+        "source": "X@humikane",
+        "content": "通关了《怪物猎人物语3》。真是一款制作精良的单机RPG啊，非常棒。但额外内容有点繁琐，而且刷稀有素材也很费劲，所以放弃了。另外，我是真希望每种怪物形态的克制关系只要在怪物图鉴里登陆过一次就能在战斗参考啊。",
+        "images": [],
+        "link": "https://x.com/humikane/status/2045884837274554607"
+      },
+      {
+        "id": "n005",
+        "type": "tweet", 
+        "date": "2026-04-19",
+        "source": "X@humikane",
+        "content": "老花眼已经发展到日常生活非常不方便的地步，所以决定配一副双光眼镜。选了漂亮的镜框，所以这笔开销还算合理吧。",
+        "images": [],
+        "link": "https://x.com/humikane/status/2046138062695248303"
       }
   ]

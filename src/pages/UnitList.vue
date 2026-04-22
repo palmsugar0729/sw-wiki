@@ -7,8 +7,8 @@
         <div v-for="item in units" :key="item.id" class="card"
         @click="goDetail(item.id)">
           <img :src="item.images" class="emblem" />
-          <h3>{{ item.unitChineseName }}</h3>
-          <h3>{{ item.ChineseNickName }}</h3>
+          <h3>{{ getInfo(item.info, '部队名') }}</h3>
+          <h3>{{ getInfo(item.info, '外号') }}</h3>
         </div>
       </div>
     </div>
@@ -23,6 +23,11 @@
 
   const goDetail = (id: number) => {
     router.push(`/unit/${id}`)
+  }
+
+  // 调用json中info里的任意信息
+  const getInfo = (info: any[], label:string) => {
+    return info.find(i => i.label === label)?.value || ''
   }
 </script>
 

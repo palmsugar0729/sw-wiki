@@ -9,6 +9,7 @@
             <img :src="getImage(item, 'icon')" class="icon" />
             <h3>{{ getInfo(item.info, '姓名') }}</h3>
             <h3>{{ getInfo(item.info, '外语名') }}</h3>
+            <h3>{{ getInfo(item.info, '所属') }}</h3>
             <p class="shortIntro">{{ item.shortContents }}</p>
           </div>
         </div>
@@ -32,7 +33,7 @@
         return `/wiki/character/${character.id}/${name}.jpg`
     }
 
-    // 调用json里info里的任意信息
+    // 调用json中info里的任意信息
     const getInfo = (info: any[], label: string) => {
       return info.find(i => i.label === label)?.value || ''
     }

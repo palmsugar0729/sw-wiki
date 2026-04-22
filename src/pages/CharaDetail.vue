@@ -243,209 +243,177 @@
 </script>
   
 <style scoped>
-    .detail {
-      padding: 20px;
-      color: #fff;
-    }
-
-    /* ===== 标题 ===== */
-    .title {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    /* ===== 上半部分 ===== */
-    .top-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      align-items: start;
-    }
-
-    /* ===== 表格 ===== */
-    .infoTable {
-      width: 100%;
-      border-collapse: collapse;
-      background: rgba(255,255,255,0.05);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .infoTable tr {
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .infoTable td {
-      height: 50px;
-    }
-
-    .label {
-      width: 30%;
-      color: #ccc;
-      font-size: 20px;
-    }
-
-    .value {
-      white-space: normal;
-      font-size: 20px;
-    }
-
-    /* ===== 右侧图片区 ===== */
-    .right {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* ===== tabs ===== */
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .tabs button {
-      padding: 6px 12px;
-      border: none;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .tabs button:hover {
-      background: rgba(255,255,255,0.2);
-    }
-
-    .tabs .active {
-      background: #0284c7;
-    }
-
-    /* ===== 主图 ===== */
-    .mainImage {
-      width: 70%;
-      max-width: 320px;
-      border-radius: 8px;
-      object-fit: contain;
-      background: rgba(0,0,0,0.2);
-    }
-
-    /* ===== 中间介绍 ===== */
-    .introduction {
-      margin-top: 30px;
-      line-height: 1.6;
-    }
-
-    .introduction p {
-      text-indent: 2em;
-      margin: 10px 0;
-    }
-
-    .introduction img {
-      width: 25%;
-      margin: 15px 0;
-      border-radius: 8px;
-    }
-
-    /* ===== 图集 ===== */
-    /* 图集网格 */
-    .gallery {
-      display: grid;
-      margin-top: 40px;
-      grid-template-columns: repeat(auto-fill, 120px);
-      gap: 10px;
-    }
-
-    .gallery h2 {
-      margin-bottom: 10px;
-    }
-
-    .thumb {
-      width: 100%;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .thumb:hover {
-      transform: scale(1.1);
-    }
-
-    /* 预览层 */
-    .preview {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-    
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      overflow: hidden;
-    }
-
-    .preview-img {
-      max-width: 85%;
-      max-height: 85%;
-      position: absolute;
-    }
-
-    /* 左右按钮 */
-    .nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 40px;
-      color: white;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .nav.left {
-      left: 20px;
-    }
-
-    .nav.right {
-      right: 20px;
-    }
-
-    /* 轮播动画 */
-    /* 👉 左滑（下一张） */
-    .slide-left-enter-active,
-    .slide-left-leave-active {
-      transition: all 0.3s ease;
-    }
-
-    .slide-left-enter-from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-
-    .slide-left-leave-to {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-
-    /* 👉 右滑（上一张） */
-    .slide-right-enter-active,
-    .slide-right-leave-active {
-      transition: all 0.3s ease;
-    }
-
-    .slide-right-enter-from {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-
-    .slide-right-leave-to {
-      transform: translateX(100%);
-      opacity: 0;
-    }
+  .detail {
+    padding: 20px;
+    color: #fff;
+  }
+  /* ===== 标题 ===== */
+  .title {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  /* ===== 上半部分 ===== */
+  .top-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  /* ===== 表格 ===== */
+  .infoTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .infoTable tr {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .infoTable td {
+    height: 50px;
+  }
+  .label {
+    width: 30%;
+    color: #ccc;
+    font-size: 20px;
+  }
+  .value {
+    white-space: normal;
+    font-size: 20px;
+  }
+  /* ===== 右侧图片区 ===== */
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* ===== tabs ===== */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .tabs button {
+    padding: 6px 12px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .tabs button:hover {
+    background: rgba(255,255,255,0.2);
+  }
+  .tabs .active {
+    background: #0284c7;
+  }
+  /* ===== 主图 ===== */
+  .mainImage {
+    width: 70%;
+    max-width: 320px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: rgba(0,0,0,0.2);
+  }
+  /* ===== 中间介绍 ===== */
+  .introduction {
+    margin-top: 30px;
+    line-height: 1.6;
+  }
+  .introduction p {
+    text-indent: 2em;
+    margin: 10px 0;
+  }
+  .introduction img {
+    width: 25%;
+    margin: 15px 0;
+    border-radius: 8px;
+  }
+  /* ===== 图集 ===== */
+  /* 图集网格 */
+  .gallery {
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: repeat(auto-fill, 120px);
+    gap: 10px;
+  }
+  .gallery h2 {
+    margin-bottom: 10px;
+  }
+  .thumb {
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .thumb:hover {
+    transform: scale(1.1);
+  }
+  /* 预览层 */
+  .preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .preview-img {
+    max-width: 85%;
+    max-height: 85%;
+    position: absolute;
+  }
+  /* 左右按钮 */
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .nav.left {
+    left: 20px;
+  }
+  .nav.right {
+    right: 20px;
+  }
+  /* 轮播动画 */
+  /* 👉 左滑（下一张） */
+  .slide-left-enter-active,
+  .slide-left-leave-active {
+    transition: all 0.3s ease;
+  }
+  .slide-left-enter-from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  .slide-left-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  /* 👉 右滑（上一张） */
+  .slide-right-enter-active,
+  .slide-right-leave-active {
+    transition: all 0.3s ease;
+  }
+  .slide-right-enter-from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  .slide-right-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 
 </style>

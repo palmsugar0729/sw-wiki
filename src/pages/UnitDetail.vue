@@ -1,66 +1,32 @@
 <template>
   <div class="content" v-if="unit">
     
-    <div class="title">{{ unit.unitChineseName }}&emsp;{{ unit.ChineseNickName }}</div>
+    <h1 class="title">部队介绍</h1>
 
     <!-- 上半部分：信息 + 图片 -->
     <div class="top-section">
 
       <!-- 左侧：信息 -->
-      <div class="info-table" @click="handleLinkClick">
-        
-
-        <div class="row">
-          <div class="label">部队名</div>
-          <div class="value" >{{ unit.unitChineseName }}</div>
-        </div>
-
-        <div class="row">
-          <div class="label">英文名</div>
-          <div class="value" v-html="renderText(unit.unitEnglishName)"></div>
-        </div>
-
-        <div class="row">
-          <div class="label">外号</div>
-          <div class="value" v-html="renderText(unit.ChineseNickName)"></div>
-        </div>
-
-        <div class="row">
-          <div class="label">英文外号</div>
-          <div class="value" v-html="renderText(unit.EnglishNickName)"></div>
-        </div>
-
-        <div class="row">
-          <div class="label">基地</div>
-          <div class="value" v-html="renderText(unit.baseZone)"></div>
-        </div>
-
-        <div class="row">
-          <div class="label">隶属</div>
-          <div class="value" v-html="renderText(unit.under)"></div>
-        </div>
-
-        <div class="row">
-          <div class="label">负责空域</div>
-          <div class="value" v-html="renderText(unit.responsibility)"></div>
-        </div>
-
-        <div class="row">
-          <div class="label">司令</div>
-          <div class="value" v-html="renderText(unit.commander)"></div>
-        </div>
-
-        <div class="row">
-          <div class="label">战斗队长</div>
-          <div class="value" v-html="renderText(unit.captain)"></div>
-        </div>
-
-        <div class="row">
-          <div class="label">成员</div>
-          <div class="value" v-html="renderText(unit.members)"></div>
-        </div>
-
-        </div>
+       <table class="infoTable">
+        <tr v-for="(item, index) in unit.info" :key="index">
+          <td class="label">{{ item.label }}</td>
+          <td class="value">
+            <template v-if="Array.isArray(item.value)">
+              <div v-for="(v, i) in item.value"
+              :key="i"
+              v-html="renderText(v)"
+              @click="handleLinkClick"
+              >
+              </div>
+            </template>
+            <template v-else>
+              <span 
+                v-html="renderText(item.value)"
+                @click="handleLinkClick"></span>
+            </template>
+          </td>
+        </tr>
+       </table>
 
       <!-- 右侧：图片 -->
       <div class="image">
@@ -84,35 +50,28 @@
 
 <script setup lang="ts">
   import { useRoute, useRouter } from 'vue-router'
+  import { computed } from 'vue'
   import raw from '../data/UnitInfo.json'
   import { renderText } from '../utils/render'
   
   /* ✅ 定义类型 */
+  type InfoItem = {
+      label: string
+      value: string | string[]
+    }
+
   type Unit = {
-    id: number
-    unitChineseName: string
-    unitEnglishName: string
+    id: string
+    info: InfoItem[]
     images: string
-    ChineseNickName: string
-    EnglishNickName: string
-    baseZone: string
-    under: string
-    responsibility: string
-    commander: string
-    captain: string
-    members: string
     history: string
+    tags: string[]
   }
   
   /* 数据 */
   const units = raw as Unit[]
   const route = useRoute()
   const router = useRouter()
-  
-  /* ✅ 找到当前部队 */
-  const unit = units.find(
-    (u) => u.id === Number(route.params.id)
-  )
 
   // 处理内链接点击
   const handleLinkClick = (e: Event) => {
@@ -126,59 +85,55 @@
 
         router.push(`/${type}/${id}`)
       }
-    }
+  }
+
+  /* ✅ 找到当前部队 */ 
+  const unit = computed(() => 
+    units.find(u => u.id === String(route.params.id))
+  )
 </script>
+  
+  
 
 <style>
+  .detail {
+    padding: 20px;
+    color: #fff;
+  }
+  /* ===== 标题 ===== */
   .title {
-    text-indent: center;
-    font-size: 50px;
-    margin-bottom: 60px;
-    color: black;
+    margin-bottom: 20px;
+    text-align: center;
   }
-
-  /* 顶部区域：左右布局 */
+  /* ===== 上半部分 ===== */
   .top-section {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
   }
-
-  /* 左侧信息 */
-  .info-table {
-    background: rgba(255,255,255,0.08);
-    border-radius: 10px;
+  /* ===== 表格 ===== */
+  .infoTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
     overflow: hidden;
-    font-size: 14px;
   }
-
-  /* 每一行 */
-  .row {
-    display: flex;
-    align-items: center;
+  .infoTable tr {
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    width: 600px;
-    line-height: 1.6;
-    padding: 8px 10px;
   }
-
-  /* 左边标签 */
-  .row .label {
-    width: 100px;
-    font-weight: bold;
+  .infoTable td {
+    height: 50px;
+  }
+  .label {
+    width: 30%;
+    color: #ccc;
     font-size: 20px;
   }
-
-  /* 右边内容 */
-  .row .value {
-    flex: 1;
-    border-left: 1px solid rgba(255,255,255,0.1);
+  .value {
+    white-space: normal;
     font-size: 20px;
-  }
-
-  /* 最后一行去边框 */
-  .row:last-child {
-    border-bottom: none;
   }
 
   /* 右侧图片 */

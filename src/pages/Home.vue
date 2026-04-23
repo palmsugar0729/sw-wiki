@@ -133,7 +133,7 @@
       .sort((a, b) =>
         new Date(b.date).getTime() - new Date(a.date).getTime()
       )
-      .slice(0, 2)
+      .slice(0, 3)
   })
 
   const getNewsImage = (id: string, name?: string) => {
@@ -263,6 +263,7 @@
   .title > span {
     font-size: 20px;
     font-weight: normal;
+    color: #000;
   }
   .title .date {
     font-size: 14px;

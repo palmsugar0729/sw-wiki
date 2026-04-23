@@ -21,7 +21,7 @@
   // 添加路由控制，点击展示卡片跳转到详情页
   const router = useRouter()
 
-  const goDetail = (id: number) => {
+  const goDetail = (id: string) => {
     router.push(`/unit/${id}`)
   }
 

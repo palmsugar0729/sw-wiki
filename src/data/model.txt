@@ -41,6 +41,7 @@
                 { "label": "外语名", "value": "" },
                 { "label": "爱称", "value": "" },
                 { "label": "外号", "value": "" },
+                { "label": "出身", "value": "" },
                 { "label": "生日", "value": "" },
                 { "label": "年龄", "value": "" },
                 { "label": "身高", "value": "" },

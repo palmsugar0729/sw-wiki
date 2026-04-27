@@ -1,5 +1,5 @@
 <template>
-  <div class="page-bg">
+  <div class="page homepage-bg">
     <div class="page-content">
       <h1>欢迎来到强袭魔女系列中文资料站</h1>
 

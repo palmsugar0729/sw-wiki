@@ -1,5 +1,5 @@
 <template>
-    <div class="page-bg">
+    <div class="page list-bg">
       <div class="page-content">
         <h1>国家介绍</h1>
         <!-- 展示卡片 -->

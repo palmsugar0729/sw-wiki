@@ -1,49 +1,51 @@
 <template>
-  <div class="content" v-if="unit">
-    
-    <h1 class="title">部队介绍</h1>
+  <div class="page detail-bg" 
+    v-if="unit"
+    :style="{'--bg-image': `url(${getBg(unit.id, unit.background)})`
+  }">
+    <div class="page-content">
+      
+      <h1 class="title">部队介绍</h1>
 
-    <!-- 上半部分：信息 + 图片 -->
-    <div class="top-section">
+      <!-- 上半部分：信息 + 图片 -->
+      <div class="top-section">
 
-      <!-- 左侧：信息 -->
-       <table class="infoTable">
-        <tr v-for="(item, index) in unit.info" :key="index">
-          <td class="label">{{ item.label }}</td>
-          <td class="value">
-            <template v-if="Array.isArray(item.value)">
-              <div v-for="(v, i) in item.value"
-              :key="i"
-              v-html="renderText(v)"
-              @click="handleLinkClick"
-              >
-              </div>
-            </template>
-            <template v-else>
-              <span 
-                v-html="renderText(item.value)"
-                @click="handleLinkClick"></span>
-            </template>
-          </td>
-        </tr>
-       </table>
+        <!-- 左侧：信息 -->
+         <table class="infoTable">
+          <tr v-for="(item, index) in unit.info" :key="index">
+            <td class="label">{{ item.label }}</td>
+            <td class="value">
+              <template v-if="Array.isArray(item.value)">
+                <div v-for="(v, i) in item.value"
+                :key="i"
+                v-html="renderText(v)"
+                @click="handleLinkClick"
+                >
+                </div>
+              </template>
+              <template v-else>
+                <span 
+                  v-html="renderText(item.value)"
+                  @click="handleLinkClick"></span>
+              </template>
+            </td>
+          </tr>
+         </table>
 
-      <!-- 右侧：图片 -->
-      <div class="image">
-        <img :src="unit.images" alt="unit image" />
+        <!-- 右侧：图片 -->
+        <div class="image">
+          <img 
+          :src="getEm(unit.id, unit.emblem)" 
+          alt="unit image" />
+        </div>
+
       </div>
 
+      <!-- 下半部分：部队介绍 -->
+      <div class="introduction" @click="handleLinkClick">
+        <div v-html="renderText(unit.history)"></div>
+      </div>
     </div>
-
-    <!-- 下半部分：部队介绍 -->
-    <div class="introduction" @click="handleLinkClick">
-      <div v-html="renderText(unit.history)"></div>
-    </div>
-  </div>
-
-  <!-- 找不到这支部队 -->
-  <div v-else>
-    <h2>未找到该部队</h2>
   </div>
 
 </template>
@@ -63,7 +65,8 @@
   type Unit = {
     id: string
     info: InfoItem[]
-    images: string
+    emblem: string
+    background: string
     history: string
     tags: string[]
   }
@@ -87,10 +90,21 @@
       }
   }
 
-  /* ✅ 找到当前部队 */ 
+  /* 找到当前部队 */ 
   const unit = computed(() => 
     units.find(u => u.id === String(route.params.id))
   )
+
+  // 获取部队标识
+  const getEm = (id: string, name?: string) => {
+    if (!name) return ''
+    return `/wiki/unit/${id}/${name}.jpg`
+  }
+  // 或许背景图片
+  const getBg = (id: string, name?: string) => {
+  if (!name) return ''
+  return `/wiki/unit/${id}/${name}.jpg`
+}
 </script>
   
   
@@ -100,6 +114,18 @@
     padding: 20px;
     color: #fff;
   }
+
+  /* 背景 */
+  .detail-bg::before {
+    content: '';
+    grid-area: 1/1;
+    background-image: var(--bg-image);  /* 👈 关键 */
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    opacity: 0.5;
+  }
+
   /* ===== 标题 ===== */
   .title {
     margin-bottom: 20px;

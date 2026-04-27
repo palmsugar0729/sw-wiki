@@ -1,12 +1,12 @@
 <template>
-  <div class="page-bg">
+  <div class="page list-bg">
     <div class="page-content">
       <h1>部队介绍</h1>
       <!-- 展示卡片 -->
       <div class="grid">
         <div v-for="item in units" :key="item.id" class="card"
         @click="goDetail(item.id)">
-          <img :src="item.images" class="emblem" />
+          <img :src="getEm(item.id, item.emblem)" class="emblem" />
           <h3>{{ getInfo(item.info, '部队名') }}</h3>
           <h3>{{ getInfo(item.info, '外号') }}</h3>
         </div>
@@ -28,6 +28,12 @@
   // 调用json中info里的任意信息
   const getInfo = (info: any[], label:string) => {
     return info.find(i => i.label === label)?.value || ''
+  }
+
+  // 获取部队标识
+  const getEm = (id: string, name?: string) => {
+    if (!name) return ''
+    return `/wiki/unit/${id}/${name}.jpg`
   }
 </script>
 

@@ -1,16 +1,20 @@
 <template>
-    <div class="content" v-if="character">
+    <div class="page detail-bg"
+    v-if="character"
+    :style="{'--bg-image': `url(${getImage(character.id, character.background)})`}"
+    >
+      <div class="page-content">
   
-      <h1 class="title">人物介绍</h1>
-  
-      <!-- 上半部分 -->
-      <div class="top-section">
-  
-        <!-- 左 -->
+        <h1 class="title">人物介绍</h1>
+
+        <!-- 上半部分 -->
+        <div class="top-section">
+      
+        <!-- 左侧表格 -->
         <table class="infoTable">
           <tr v-for="(item, index) in character.info" :key="index">
             <td class="label">{{ item.label }}</td>
-  
+          
             <td class="value">
               <template v-if="Array.isArray(item.value)">
                 <div v-for="(v, i) in item.value" 
@@ -20,7 +24,7 @@
               >
                 </div>
               </template>
-  
+            
               <template v-else>
                 <span 
                 v-html="renderText(item.value)"
@@ -29,7 +33,7 @@
             </td>
           </tr>
         </table>
-  
+      
         <!-- 右 按钮切换图片 -->
         <div class="right">
           <div class="tabs">
@@ -42,36 +46,36 @@
               {{ getImageLabel(key) }}
             </button>
           </div>
-  
+        
           <img
             class="mainImage"
             :src="getImage(character.id, character.images[currentImage])"
             alt="啊咧？图片怎么没了？"
           />
         </div>
-  
-      </div>
-  
-      <!-- 中 -->
-      <div class="introduction" @click="handleLinkClick">
+      
+        </div>
+      
+        <!-- 中 -->
+        <div class="introduction" @click="handleLinkClick">
         <template v-for="(block, index) in character.content" :key="index">
-  
+        
           <p v-if="block.type === 'text'" v-html="renderText(block.value)">
           </p>
-  
+        
           <img
             v-else-if="block.type === 'image'"
             :src="getImage(character.id, block.value)"
           />
-  
+        
         </template>
-  
-      </div>
-  
-      <!-- 下 -->
-      <div class="gallery" v-if="character.gallery?.length">
+      
+        </div>
+      
+        <!-- 下 -->
+        <div class="gallery" v-if="character.gallery?.length">
         <h2>美图一览</h2>
-
+      
         <img
           v-for="(img, i) in character.gallery"
           :key="i"
@@ -79,13 +83,13 @@
           class="thumb"
           @click="openPreview(i)"
         />
-      </div>
-        <!-- 大图预览 -->
-      <div v-if="previewVisible" class="preview" @click.self="closePreview">
-
+        </div>
+          <!-- 大图预览 -->
+        <div v-if="previewVisible" class="preview" @click.self="closePreview">
+      
         <!-- 左按钮 -->
         <button class="nav left" @click.stop="prevImage">‹</button>
-
+      
         <!-- 图片（带动画） -->
         <transition :name="transitionName">
           <img
@@ -94,17 +98,15 @@
             class="preview-img"
           />
         </transition>
-
+      
         <!-- 右按钮 -->
         <button class="nav right" @click.stop="nextImage">›</button>
-
+      
+        </div>
+    
       </div>
-  
-    </div>
-  
-    <div v-else>
-      <h2>未找到该角色</h2>
-    </div>
+    </div>  
+
 </template>
   
 <script setup lang="ts">
@@ -128,6 +130,7 @@
       id: string
       info: InfoItem[]
       images: Record<string, string>
+      background: string
       shortContents: string
       content: ContentBlock[]
       gallery: string[]
@@ -258,6 +261,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     align-items: start;
+  }
+  /* 背景 */
+  .detail-bg::before {
+    content: '';
+    grid-area: 1/1;
+    background-image: var(--bg-image);  /* 👈 关键 */
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    opacity: 0.5;
   }
   /* ===== 表格 ===== */
   .infoTable {

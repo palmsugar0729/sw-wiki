@@ -102,9 +102,9 @@
   }
   // 或许背景图片
   const getBg = (id: string, name?: string) => {
-  if (!name) return ''
-  return `/wiki/unit/${id}/${name}.jpg`
-}
+    if (!name) return ''
+    return `/wiki/unit/${id}/${name}.jpg`
+  }
 </script>
   
   

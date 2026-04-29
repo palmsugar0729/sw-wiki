@@ -1,6 +1,5 @@
 <template>
-  <div class="sidebar">
-    
+  <div class="sidebar" :class="{ collapsed: isCollapsed }">
     <!-- 搜索（以后再用） -->
     <input v-model="keyword" placeholder="搜索" />
 
@@ -14,7 +13,14 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
+  import { useSidebarStore } from '../store/sidebar'
 
   const keyword = ref('')
+  const sidebarStore = useSidebarStore()
+  const isCollapsed = computed(() => sidebarStore.isCollapsed)
 </script>
+
+<style>
+  
+</style>

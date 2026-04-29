@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "001",
         "countryChineseName": "安道尔公国",
         "countryEnglishName": "Principality of Andorra",
         "images": "/wiki/Flag/Andorra.jpg",
@@ -13,7 +13,7 @@
         "alias": ["安道尔", "安道尔公国"]
     },
     {
-        "id": 2,
+        "id": "002",
         "countryChineseName": "巴尔特兰王国",
         "countryEnglishName": "Kingdom of Baltland",
         "images": "/wiki/Flag/Baltland.jpg",
@@ -26,7 +26,7 @@
         "alias": ["巴尔特兰", "巴尔特兰王国"]
     },
     {
-        "id": 3,
+        "id": "003",
         "countryChineseName": "比利时卡王国",
         "countryEnglishName": "Kingdom of Belgica",
         "images": "/wiki/Flag/Belgica.jpg",
@@ -39,7 +39,7 @@
         "alias": ["比利时卡", "比利时卡王国"]
     },
     {
-        "id": 4,
+        "id": "004",
         "countryChineseName": "不列颠尼亚联邦",
         "countryEnglishName": "Commonwealth of Britannia",
         "images": "/wiki/Flag/Britannia.jpg",
@@ -52,7 +52,7 @@
         "alias": ["不列颠尼亚", "不列颠尼亚联邦"]
     },
     {
-        "id": 5,
+        "id": "005",
         "countryChineseName": "达基亚王国",
         "countryEnglishName": "Kingdom of Dacia",
         "images": "/wiki/Flag/Dacia.jpg",
@@ -65,7 +65,7 @@
         "alias": ["达基亚", "达基亚王国"]
     },
     {
-        "id": 6,
+        "id": "006",
         "countryChineseName": "法尔威兰联邦",
         "countryEnglishName": "Commonwealth of Farawayland",
         "images": "/wiki/Flag/Farawayland.jpg",
@@ -78,7 +78,7 @@
         "alias": ["法尔威兰", "法尔威兰联邦"]
     },
     {
-        "id": 7,
+        "id": "007",
         "countryChineseName": "扶桑皇国",
         "countryEnglishName": "Empire of Fuso",
         "images": "/wiki/Flag/Fuso.jpg",
@@ -91,7 +91,7 @@
         "alias": ["扶桑", "扶桑皇国"]
     },
     {
-        "id": 8,
+        "id": "008",
         "countryChineseName": "高卢共和国",
         "countryEnglishName": "Republic of Gallia",
         "images": "/wiki/Flag/Gallia.jpg",
@@ -104,7 +104,7 @@
         "alias": ["高卢", "高卢雄鸡"]
     },
     {
-        "id": 9,
+        "id": "009",
         "countryChineseName": "赫尔维提亚联邦",
         "countryEnglishName": "Helvetia Confederation",
         "images": "/wiki/Flag/Helvetia.jpg",
@@ -117,7 +117,7 @@
         "alias": ["赫尔维提亚", "赫尔维提亚联邦"]
     },
     {
-        "id": 10,
+        "id": "010",
         "countryChineseName": "伊斯帕尼亚王国",
         "countryEnglishName": "Kingdom of Hispania",
         "images": "/wiki/Flag/Hispania.jpg",
@@ -130,7 +130,7 @@
         "alias": ["伊斯帕尼亚", "伊斯帕尼亚王国"]
     },
     {
-        "id": 11,
+        "id": "011",
         "countryChineseName": "卡尔斯兰帝国",
         "countryEnglishName": "Empire of Karlsland",
         "images": "/wiki/Flag/Karlsland.jpg",
@@ -143,7 +143,7 @@
         "alias": ["卡尔斯兰", "卡尔斯兰帝国"]
     },
     {
-        "id": 12,
+        "id": "012",
         "countryChineseName": "利比里昂合众国",
         "countryEnglishName": "United States of Liberion",
         "images": "/wiki/Flag/Liberion.jpg",
@@ -156,7 +156,7 @@
         "alias": ["利比里昂", "利比里昂合众国", "合众国"]
     },
     {
-        "id": 13,
+        "id": "013",
         "countryChineseName": "默西亚王国",
         "countryEnglishName": "Kingdom of Moesia",
         "images": "/wiki/Flag/Moesia.jpg",
@@ -169,7 +169,7 @@
         "alias": ["默西亚", "默西亚王国"]
     },
     {
-        "id": 14,
+        "id": "014",
         "countryChineseName": "尼德兰王国",
         "countryEnglishName": "Kingdom of Netherlands",
         "images": "/wiki/Flag/Netherlands.jpg",
@@ -182,7 +182,7 @@
         "alias": ["尼德兰", "尼德兰王国"]
     },
     {
-        "id": 15,
+        "id": "015",
         "countryChineseName": "新泽兰联邦",
         "countryEnglishName": "Commonwealth of Newzeland",
         "images": "/wiki/Flag/Newzeland.jpg",
@@ -195,7 +195,7 @@
         "alias": ["新泽兰", "新泽兰联邦"]
     },
     {
-        "id": 16,
+        "id": "016",
         "countryChineseName": "欧拉西亚帝国",
         "countryEnglishName": "Empire of Orussia",
         "images": "/wiki/Flag/Orussia.jpg",
@@ -208,7 +208,7 @@
         "alias": ["欧拉西亚", "欧拉西亚帝国"]
     },
     {
-        "id": 17,
+        "id": "017",
         "countryChineseName": "奥斯特马克帝国",
         "countryEnglishName": "Empire of Ostmark",
         "images": "/wiki/Flag/Ostmark.jpg",
@@ -221,7 +221,7 @@
         "alias": ["奥斯特马克", "奥斯特马克帝国"]
     },
     {
-        "id": 18,
+        "id": "018",
         "countryChineseName": "罗马涅公国",
         "countryEnglishName": "Duchy of Romagna",
         "images": "/wiki/Flag/Romagna.jpg",
@@ -234,7 +234,7 @@
         "alias": ["罗马涅", "罗马涅公国"]
     },
     {
-        "id": 19,
+        "id": "019",
         "countryChineseName": "暹罗王国",
         "countryEnglishName": "Kingdom of Siam",
         "images": "/wiki/Flag/Siam.jpg",
@@ -247,7 +247,7 @@
         "alias": ["暹罗", "暹罗王国"]
     },
     {
-        "id": 20,
+        "id": "020",
         "countryChineseName": "南非共和国",
         "countryEnglishName": "Republic of South Africa",
         "images": "/wiki/Flag/SouthAfrica.jpg",
@@ -260,7 +260,7 @@
         "alias": ["南非", "南非共和国"]
     },
     {
-        "id": 21,
+        "id": "021",
         "countryChineseName": "索穆斯共和国",
         "countryEnglishName": "Republic of Suomus",
         "images": "/wiki/Flag/Suomus.jpg",
@@ -273,7 +273,7 @@
         "alias": ["索穆斯"]
     },
     {
-        "id": 22,
+        "id": "022",
         "countryChineseName": "威尼西亚公国",
         "countryEnglishName": "Duchy of Venezia",
         "images": "/wiki/Flag/Venezia.jpg",

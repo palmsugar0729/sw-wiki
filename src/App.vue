@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <!-- 上半部分：左右布局 -->
+    <!-- 上半部分，header -->
+    <Header />
+    <!-- 中间部分 -->
     <div class="layout">
       <Sidebar />
-      <div class="main">
+      <div class="main" :class="{ 'sidebar-hidden': isCollapsed }">
         <router-view />
       </div>
     </div>
@@ -15,8 +17,14 @@
 </template>
 
 <script setup lang="ts">
+  import Header from './components/Header.vue';
   import Sidebar from './components/Sidebar.vue'
   import Footer from './components/Footer.vue';
+  import { computed } from 'vue'
+  import { useSidebarStore } from './store/sidebar'
+
+  const sidebarStore = useSidebarStore()
+    const isCollapsed = computed(() => sidebarStore.isCollapsed)
 </script>
 
 <style>
@@ -29,6 +37,7 @@ body {
 .layout {
   display: flex;
   flex: 1;
+  min-height: 95vh;
 }
 
 .layout .main {
@@ -39,7 +48,13 @@ body {
   width: 250px;
   background: #0284c7;
   padding: 15px;
-  /* overflow-y: auto; */
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &.sidebar.collapsed {
+    width: 0;
+    padding: 0;
+  }
 }
 
 .sidebar h2 {
@@ -60,16 +75,15 @@ body {
   background: rgba(255,255,255,0.2);
 }
 
+/* 侧边栏隐藏时，内容区域自动扩展 */
+.main.sidebar-hidden {
+  margin-left: 0;
+}
+
 .content {
   flex: 1;
   padding: 20px;
   /* overflow-y: auto; */
-}
-
-.header {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 
 .search-box {

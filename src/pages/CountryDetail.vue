@@ -31,10 +31,11 @@
   import { useRoute, useRouter } from 'vue-router'
   import raw from '../data/CountryInfo.json'
   import { renderText } from '../utils/render'
+
   
   /* ✅ 定义类型 */
   type Country = {
-    id: number
+    id: string
     countryChineseName: string
     countryEnglishName: string
     images: string
@@ -51,7 +52,7 @@
   
   /* ✅ 找到当前国家 */
   const country = countries.find(
-    (c) => c.id === Number(route.params.id)
+    (c) => c.id === String(route.params.id)
   )
 
   // 处理内链接点击

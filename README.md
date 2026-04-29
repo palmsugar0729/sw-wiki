@@ -1,9 +1,11 @@
 这是一个练习作品
 
-由felayna主持、palmsugar制作
+由felayna主持、felayna整理资料、palmsugar编写页面
 
-代码主要由AI生成
+代码主要由AI生成，并人工完善
 
 是《强袭魔女》系列的中文WIKI资料站
+
+具体功能将晚些时候介绍
 
 切勿将里面的内容用于商业！

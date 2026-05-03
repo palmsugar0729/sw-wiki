@@ -50,7 +50,7 @@ const getEm = (id: string, name?: string) => {
 
 .emblem {
   width: 100%;
-  aspect-ratio: 650 / 650;
+  aspect-ratio: 200 / 200;
   object-fit: cover;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.2);

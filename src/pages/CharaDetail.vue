@@ -265,13 +265,13 @@ onUnmounted(() => {
     padding: 6px 12px;
     border: none;
     background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    color: #000;
     border-radius: 6px;
     cursor: pointer;
     transition: 0.2s;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: #0284c7;
     }
   }
   .active {

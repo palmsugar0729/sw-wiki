@@ -135,6 +135,7 @@ span {
 a:hover {
   text-decoration: underline;
   color: red;
+  cursor: pointer;
 }
 
 /* 来访人数统计 */

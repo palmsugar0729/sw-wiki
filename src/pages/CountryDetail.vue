@@ -10,11 +10,23 @@
           <img :src="country.images" class="flag" />
         </div>
         <!-- 左侧文字内容 -->
-        <div class="info" @click="handleLinkClick">
-          <div v-html="renderText(country.territory)"></div>
-          <div v-html="renderText(country.history)"></div>
-          <div v-html="renderText(country.polity)"></div>
-          <div v-html="renderText(country.military)"></div>
+        <div class="info">
+          <div
+            v-html="renderText(country.territory)"
+            @click="handleLinkClick"
+          ></div>
+          <div
+            v-html="renderText(country.history)"
+            @click="handleLinkClick"
+          ></div>
+          <div
+            v-html="renderText(country.polity)"
+            @click="handleLinkClick"
+          ></div>
+          <div
+            v-html="renderText(country.military)"
+            @click="handleLinkClick"
+          ></div>
         </div>
       </div>
 

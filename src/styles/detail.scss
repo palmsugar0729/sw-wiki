@@ -1,0 +1,108 @@
+/* 背景，根据json里的id编号动态展示 countrydetail不生效 */
+.detail-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  grid-area: 1/1;
+  background-image: var(--bg-image); /* 👈 关键 */
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.detail-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 200px;
+  transition: all 0.2s ease;
+
+  h1,
+  h2,
+  h3,
+  span,
+  p {
+    font-family: SmileySans;
+  }
+  h1,
+  h2,
+  h3 {
+    margin: 20px 0 20px 10px;
+  }
+  h1 {
+    color: #facc15;
+  }
+  h3 {
+    color: #444;
+  }
+  // 段落文字内容
+  p,
+  span {
+    color: #000;
+  }
+  .info p,
+  .introduction p {
+    text-indent: 2em;
+  }
+  /* ===== 中间介绍 ===== */
+  .introduction {
+    margin-top: 30px;
+    line-height: 1.6;
+  
+    p {
+      text-indent: 2em;
+      margin: 10px 0;
+    }
+    img {
+      width: 25%;
+      margin: 15px 0;
+      border-radius: 8px;
+    }
+    
+  }
+  /* ===== 表格 ===== */
+  .infoTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+
+    tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      td {
+        height: 50px;
+      }
+      .label {
+        width: 30%;
+        color: #222;
+        font-size: 20px;
+        background-color: #e0ffff;
+      }
+      .value {
+        white-space: normal;
+        font-size: 20px;
+      }
+
+      p,
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+  // 内链点击
+  .wiki-link {
+    color: #ff1493;
+
+    &:hover {
+      color: #facc15;
+      cursor: pointer;
+    }
+  }
+}

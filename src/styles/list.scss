@@ -1,0 +1,36 @@
+/* list卡片 */
+.card {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(217, 52, 72, 0.7);
+  }
+}
+
+.list-page {
+  /* 页面标题 */
+  h1 {
+    margin: 50px 0;
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #facc15;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+  .shortIntro,
+  h3 {
+    font-weight: bold;
+  }
+
+  h3 {
+    margin: 5px 15px;
+    text-align: center;
+  }
+
+  p {
+    margin-top: 15px;
+  }
+}

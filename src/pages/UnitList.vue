@@ -10,7 +10,7 @@
           class="card"
           @click="goDetail(item.id)"
         >
-          <img :src="getEm(item.id, item.emblem)" class="emblem" />
+          <img :src="getImage(item, 'emblem')" class="emblem" />
           <h3>{{ getInfo(item.info, "部队名") }}</h3>
           <h3>{{ getInfo(item.info, "外号") }}</h3>
         </div>
@@ -24,20 +24,19 @@ import units from "../data/UnitInfo.json";
 import { useRouter } from "vue-router";
 // 添加路由控制，点击展示卡片跳转到详情页
 const router = useRouter();
-
+// 点击跳转
 const goDetail = (id: string) => {
   router.push(`/unit/${id}`);
+};
+// 获取部队标识
+const getImage = (unit: any, key: string) => {
+  const name = unit.images[key];
+  return `/wiki/unit/${unit.id}/${name}.jpg`;
 };
 
 // 调用json中info里的任意信息
 const getInfo = (info: any[], label: string) => {
   return info.find((i) => i.label === label)?.value || "";
-};
-
-// 获取部队标识
-const getEm = (id: string, name?: string) => {
-  if (!name) return "";
-  return `/wiki/unit/${id}/${name}.jpg`;
 };
 </script>
 

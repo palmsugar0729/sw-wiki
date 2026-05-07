@@ -126,10 +126,7 @@ const imageKeys = computed(() => {
 });
 /* 标签映射 */
 const getImageLabel = (key: string) => {
-  if (key.includes("charaIll")) return "立绘";
   if (key === "emblem") return "徽章";
-  if (key === "shield") return "护盾";
-  if (key === "icon") return "头像";
   return key;
 };
 

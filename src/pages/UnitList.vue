@@ -10,7 +10,7 @@
           class="card"
           @click="goDetail(item.id)"
         >
-          <img :src="getImage(item, 'emblem')" class="emblem" />
+          <img :src="getImage(item, '徽章')" class="emblem" />
           <h3>{{ getInfo(item.info, "部队名") }}</h3>
           <h3>{{ getInfo(item.info, "外号") }}</h3>
         </div>

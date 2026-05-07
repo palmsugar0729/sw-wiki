@@ -164,7 +164,6 @@ const getImage = (id: string, name?: string) => {
 
 /* 当前图片 */
 const currentImage = ref<string>("");
-
 /* 自动初始化 */
 watch(
   () => character.value,
@@ -175,13 +174,11 @@ watch(
   },
   { immediate: true }
 );
-
 /* 图片 keys */
 const imageKeys = computed(() => {
   if (!character.value) return [];
   return Object.keys(character.value.images);
 });
-
 /* 标签映射 */
 const getImageLabel = (key: string) => {
   if (key.includes("charaIll")) return "立绘";

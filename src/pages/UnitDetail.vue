@@ -33,7 +33,18 @@
 
           <!-- 右侧：图片 -->
           <div class="image">
-            <img :src="getEm(unit.id, unit.emblem)" alt="unit image" />
+            <button
+              v-for="key in imageKeys"
+              :key="key"
+              :class="{ active: currentImage === key }"
+              @click="currentImage = key"
+            >
+              {{ getImageLabel(key) }}
+            </button>
+            <img
+              :src="getImage(unit.id, unit.images[currentImage])"
+              alt="unit image"
+            />
           </div>
         </div>
 
@@ -48,7 +59,7 @@
 
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
-import { computed } from "vue";
+import { ref, computed, watch } from "vue";
 import raw from "../data/UnitInfo.json";
 import { renderText } from "../utils/render";
 
@@ -61,7 +72,7 @@ type InfoItem = {
 type Unit = {
   id: string;
   info: InfoItem[];
-  emblem: string;
+  images: Record<string, string>;
   background: string;
   history: string;
   tags: string[];
@@ -92,10 +103,36 @@ const unit = computed(() =>
 );
 
 // 获取部队标识
-const getEm = (id: string, name?: string) => {
+const getImage = (id: string, name?: string) => {
   if (!name) return "";
   return `/wiki/unit/${id}/${name}.jpg`;
 };
+/* 当前图片 */
+const currentImage = ref<string>("");
+/* 自动初始化 */
+watch(
+  () => unit.value,
+  (val) => {
+    if (val?.images) {
+      currentImage.value = Object.keys(val.images)[0];
+    }
+  },
+  { immediate: true }
+);
+/* 图片 keys */
+const imageKeys = computed(() => {
+  if (!unit.value) return [];
+  return Object.keys(unit.value.images);
+});
+/* 标签映射 */
+const getImageLabel = (key: string) => {
+  if (key.includes("charaIll")) return "立绘";
+  if (key === "emblem") return "徽章";
+  if (key === "shield") return "护盾";
+  if (key === "icon") return "头像";
+  return key;
+};
+
 // 或许背景图片
 const getBg = (id: string, name?: string) => {
   if (!name) return "";

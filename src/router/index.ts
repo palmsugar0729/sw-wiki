@@ -8,6 +8,7 @@ import UnitList from '../pages/UnitList.vue'
 import UnitDetail from '../pages/UnitDetail.vue'
 import CharaList from '../pages/CharaList.vue'
 import CharaDetail from '../pages/CharaDetail.vue'
+import Privacy from '../pages/privacy.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: '/', component: Home },
@@ -17,7 +18,8 @@ const routes: RouteRecordRaw[] = [
   { path: '/units', component: UnitList },
   { path: '/unit/:id', component: UnitDetail },
   { path: '/characters', component: CharaList },
-  { path: '/character/:id', component: CharaDetail }
+  { path: '/character/:id', component: CharaDetail },
+  { path: '/privacy', component: Privacy }
 ]
 
 

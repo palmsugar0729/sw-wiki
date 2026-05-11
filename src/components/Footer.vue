@@ -9,6 +9,10 @@
       若本站收录的内容无意侵犯了贵司版权，请联系我们，我们会及时处理和回复，谢谢
     </div>
     <div class="links">
+      <span class="privacy"
+        ><router-link to="/privacy">隐私政策</router-link></span
+      >
+      <li></li>
       <span @click="showContact = true" id="conUs">联系我们</span>
       <li></li>
       <span @click="showDonate = true">请求赞助</span>

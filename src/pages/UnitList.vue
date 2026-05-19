@@ -22,20 +22,26 @@
 <script setup lang="ts">
 import units from "../data/UnitInfo.json";
 import { useRouter } from "vue-router";
+
 // 添加路由控制，点击展示卡片跳转到详情页
 const router = useRouter();
+
 // 点击跳转
-const goDetail = (id: string) => {
+
+const goDetail = (id: string): void => {
   router.push(`/unit/${id}`);
 };
+
 // 获取部队标识
-const getImage = (unit: any, key: string) => {
+
+const getImage = (unit: any, key: string): string => {
   const name = unit.images[key];
-  return `/wiki/unit/${unit.id}/${name}.jpg`;
+  return `/wiki/Unit/${unit.id}/${name}.jpg`;
 };
 
 // 调用json中info里的任意信息
-const getInfo = (info: any[], label: string) => {
+
+const getInfo = (info: { label: string; value: string }[], label: string): string => {
   return info.find((i) => i.label === label)?.value || "";
 };
 </script>
@@ -55,3 +61,4 @@ const getInfo = (info: any[], label: string) => {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 </style>
+

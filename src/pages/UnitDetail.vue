@@ -105,7 +105,7 @@ const unit = computed(() =>
 // 获取部队标识
 const getImage = (id: string, name?: string) => {
   if (!name) return "";
-  return `/wiki/unit/${id}/${name}.jpg`;
+  return `/wiki/Unit/${id}/${name}.jpg`;
 };
 /* 当前图片 */
 const currentImage = ref<string>("");

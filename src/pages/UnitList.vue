@@ -2,7 +2,6 @@
   <div class="page list-bg">
     <div class="page-content list-page">
       <h1>部队介绍</h1>
-      <!-- 展示卡片 -->
       <div class="grid">
         <div
           v-for="item in units"
@@ -10,9 +9,9 @@
           class="card"
           @click="goDetail(item.id)"
         >
-          <img :src="getImage(item, 'emblem')" class="emblem" />
-          <h3>{{ getInfo(item.info, "部队名") }}</h3>
-          <h3>{{ getInfo(item.info, "外号") }}</h3>
+          <img :src="getEntityImage('unit', item.id, item.images.emblem)" class="emblem" />
+          <h3>{{ getInfoValue(item.info, '部队名') }}</h3>
+          <h3>{{ getInfoValue(item.info, '外号') }}</h3>
         </div>
       </div>
     </div>
@@ -20,30 +19,17 @@
 </template>
 
 <script setup lang="ts">
-import units from "../data/UnitInfo.json";
-import { useRouter } from "vue-router";
+import type { Unit } from '@/types'
+import unitsRaw from '@/data/UnitInfo.json'
+import { useRouter } from 'vue-router'
+import { getEntityImage, getInfoValue } from '@/utils/media'
 
-// 添加路由控制，点击展示卡片跳转到详情页
-const router = useRouter();
-
-// 点击跳转
+const units = unitsRaw as Unit[]
+const router = useRouter()
 
 const goDetail = (id: string): void => {
-  router.push(`/unit/${id}`);
-};
-
-// 获取部队标识
-
-const getImage = (unit: any, key: string): string => {
-  const name = unit.images[key];
-  return `/wiki/Unit/${unit.id}/${name}.jpg`;
-};
-
-// 调用json中info里的任意信息
-
-const getInfo = (info: { label: string; value: string }[], label: string): string => {
-  return info.find((i) => i.label === label)?.value || "";
-};
+  router.push(`/unit/${id}`)
+}
 </script>
 
 <style scoped>
@@ -60,5 +46,11 @@ const getInfo = (info: { label: string; value: string }[], label: string): strin
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
-</style>
 
+/* 移动端 ≤768px */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+</style>

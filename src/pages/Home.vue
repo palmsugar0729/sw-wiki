@@ -23,30 +23,26 @@
           <h2>热点新闻</h2>
 
           <div v-for="item in displayNews" :key="item.id" class="news-item">
-            <!-- 标题 -->
             <div class="title">
               <span class="source">{{ item.source }}</span>
               <span class="date">{{ item.date }}</span>
             </div>
 
-            <!-- 内容 -->
             <div
               v-html="renderText(item.content)"
               @click="handleLinkClick"
               class="content"
             ></div>
 
-            <!-- 图片 -->
             <div class="images" v-if="item.images?.length">
               <img
                 v-for="(img, i) in item.images"
                 :key="img"
                 :src="getNewsImage(item.id, img)"
-                @click="openPreview(item, i)"
+                @click="openNewsPreview(item, i)"
               />
             </div>
 
-            <!-- 外链 -->
             <div v-if="item.link" @click="goExternal(item.link)" class="link">
               查看原文
             </div>
@@ -63,11 +59,14 @@
             class="recent-item"
             @click="goDetail(item.id)"
           >
-            <img :src="getImage(item.id, item.images.icon)" class="icon" />
+            <img
+              :src="getEntityImage('character', item.id, item.images.icon)"
+              class="icon"
+            />
 
             <div class="recent-content">
               <div class="name">
-                {{ getName(item.info) }}
+                {{ getInfoValue(item.info, '姓名') }}
               </div>
               <div class="date">
                 {{ item.updatedAt }}
@@ -78,117 +77,59 @@
       </div>
     </div>
 
-    <!-- ✅ 全局图片预览 -->
-    <div v-if="previewVisible" class="viewer" @click.self="close">
-      <button class="nav left" @click.stop="prev">‹</button>
-
-      <img :src="currentSrc" class="image" :class="transitionName" />
-
-      <button class="nav right" @click.stop="next">›</button>
-
-      <div class="close" @click="close">×</div>
-    </div>
+    <!-- 图片预览 -->
+    <ImageViewer
+      v-model="previewVisible"
+      :images="previewUrls"
+      :initial-index="previewIndex"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-/* 引入 */
-import { useRouter } from "vue-router";
-import { renderText } from "../utils/render";
-import newsRaw from "../data/news.json";
-import charaRaw from "../data/CharaInfo.json";
-import { ref, computed } from "vue";
-
-/*  类型 */
-type News = {
-  id: string;
-  date: string;
-  source: string;
-  content: string;
-  link?: string;
-  images: string[];
-};
-
-type InfoItem = {
-  label: string;
-  value: string | string[];
-};
-
-type Character = {
-  id: string;
-  updatedAt: string;
-  info: InfoItem[];
-  images: Record<string, string>;
-};
+import { useRouter } from 'vue-router'
+import { renderText } from '@/utils/render'
+import { getEntityImage, getInfoValue } from '@/utils/media'
+import { useWikiLink } from '@/composables/useWikiLink'
+import ImageViewer from '@/components/ImageViewer.vue'
+import type { News, Character } from '@/types'
+import newsRaw from '@/data/news.json'
+import charaRaw from '@/data/CharaInfo.json'
+import { ref, computed } from 'vue'
 
 /* 数据 */
-const router = useRouter();
-const news = newsRaw as News[];
-const characters = charaRaw as Character[];
+const router = useRouter()
+const { handleLinkClick } = useWikiLink()
+const news = newsRaw as News[]
+const characters = charaRaw as Character[]
 
 /* 热点新闻 */
 const displayNews = computed(() => {
   return [...news]
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
-});
+    .slice(0, 3)
+})
 
 const getNewsImage = (id: string, name?: string) => {
-  if (!name) return "";
-  return `/wiki/news/${id}/${name}.jpg`;
-};
+  if (!name) return ''
+  return `/wiki/news/${id}/${name}.jpg`
+}
 
 /* 大图预览 */
-const previewVisible = ref(false);
-const previewList = ref<string[]>([]);
-const previewIndex = ref(0);
-const previewId = ref("");
-const transitionName = ref("fade");
+const previewVisible = ref(false)
+const previewUrls = ref<string[]>([])
+const previewIndex = ref(0)
 
-const openPreview = (item: News, index: number) => {
-  previewList.value = item.images;
-  previewIndex.value = index;
-  previewId.value = item.id;
-  previewVisible.value = true;
-};
-
-const currentSrc = computed(() => {
-  const name = previewList.value[previewIndex.value];
-  return `/wiki/news/${previewId.value}/${name}.jpg`;
-});
-
-const close = () => {
-  previewVisible.value = false;
-};
-
-const next = () => {
-  transitionName.value = "slide-left";
-  previewIndex.value = (previewIndex.value + 1) % previewList.value.length;
-};
-
-const prev = () => {
-  transitionName.value = "slide-right";
-  previewIndex.value =
-    (previewIndex.value - 1 + previewList.value.length) %
-    previewList.value.length;
-};
+const openNewsPreview = (item: News, index: number) => {
+  previewUrls.value = item.images.map((img) => getNewsImage(item.id, img))
+  previewIndex.value = index
+  previewVisible.value = true
+}
 
 /* 外链跳转 */
 const goExternal = (url: string) => {
-  window.open(url, "_blank");
-};
-
-/* 内链点击 */
-const handleLinkClick = (e: Event) => {
-  const el = e.target as HTMLElement;
-
-  if (el.classList.contains("wiki-link")) {
-    const type = el.dataset.type;
-    const id = el.dataset.id;
-    if (!type || !id) return;
-    router.push(`/${type}/${id}`);
-  }
-};
+  window.open(url, '_blank')
+}
 
 /* 最近更新 */
 const recentCharacters = computed(() => {
@@ -197,21 +138,12 @@ const recentCharacters = computed(() => {
       (a, b) =>
         new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
     )
-    .slice(0, 5);
-});
-
-const getName = (info: InfoItem[]) => {
-  const nameItem = info.find((i) => i.label === "姓名");
-  return nameItem?.value || "未知";
-};
-
-const getImage = (id: string, name: string) => {
-  return `/wiki/character/${id}/${name}.jpg`;
-};
+    .slice(0, 5)
+})
 
 const goDetail = (id: string) => {
-  router.push(`/character/${id}`);
-};
+  router.push(`/character/${id}`)
+}
 </script>
 
 <style scoped>
@@ -224,27 +156,25 @@ const goDetail = (id: string) => {
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* 主页信息部分 */
 .infoBox {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin-top: 60px;
-  /* 下属每个盒子 */
+
   & > div {
     background: rgba(255, 255, 255, 0.78);
     padding: 20px;
     border-radius: 10px;
-    /* min-height: 200px; */
     transition: all 0.2s ease;
   }
-  /* 小标题 */
+
   h2 {
     font-size: 35px;
     font-weight: bold;
     margin-bottom: 30px;
   }
-  /* 简要介绍 */
+
   .brief-intro {
     display: flex;
     padding: 0 20px;
@@ -253,7 +183,7 @@ const goDetail = (id: string) => {
     align-items: center;
     font-size: 26px;
   }
-  /* 公告栏 */
+
   .notice {
     display: flex;
     flex-direction: column;
@@ -281,7 +211,7 @@ const goDetail = (id: string) => {
       color: #333;
     }
   }
-  /* 热点新闻 */
+
   .news-item {
     padding: 15px;
     margin-bottom: 15px;
@@ -333,7 +263,7 @@ const goDetail = (id: string) => {
       cursor: pointer;
     }
   }
-  /* 最近更新 */
+
   .recent-item {
     display: flex;
     gap: 10px;
@@ -343,14 +273,13 @@ const goDetail = (id: string) => {
     transition: all 0.2s ease;
     background: rgba(244, 221, 223, 0.6);
 
-    /* 头像 */
     .icon {
       width: 100px;
       height: 100px;
       object-fit: cover;
       border-radius: 6px;
     }
-    /* 内容 */
+
     .recent-content {
       padding-top: 27px;
       padding-left: 40px;
@@ -375,48 +304,54 @@ const goDetail = (id: string) => {
     background: rgba(217, 52, 72, 0.6);
   }
 }
-/* 大图预览 */
-.viewer {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9;
 
-  .nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 40px;
-    color: #fff;
-    background: none;
-    border: none;
-    cursor: pointer;
+/* 移动端 ≤768px */
+@media (max-width: 768px) {
+  .page-content h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
   }
 
-  .image {
-    max-width: 85%;
-    max-height: 85%;
-    border-radius: 8px;
-    transition: all 0.25s ease;
-  }
+  .infoBox {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+    gap: 15px;
 
-  .left {
-    left: 30px;
-  }
-  .right {
-    right: 30px;
-  }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
 
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: #fff;
-    cursor: pointer;
+    .brief-intro {
+      font-size: 18px;
+      padding: 0 10px;
+    }
+
+    .news-item {
+      .title > span {
+        font-size: 16px;
+      }
+
+      .images img {
+        width: 80px;
+      }
+    }
+
+    .recent-item {
+      .icon {
+        width: 64px;
+        height: 64px;
+      }
+
+      .recent-content {
+        padding-top: 12px;
+        padding-left: 15px;
+
+        .name {
+          font-size: 18px;
+        }
+      }
+    }
   }
 }
 </style>

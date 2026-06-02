@@ -15,12 +15,12 @@
 .detail-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.78);
   padding: 20px;
+  background: rgba(255, 255, 255, 0.78);
   border-radius: 10px;
   min-height: 200px;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 
   h1,
   h2,
@@ -53,7 +53,7 @@
   .introduction {
     margin-top: 30px;
     line-height: 1.6;
-  
+
     p {
       text-indent: 2em;
       margin: 10px 0;
@@ -63,7 +63,26 @@
       margin: 15px 0;
       border-radius: 8px;
     }
-    
+  }
+
+  /* 移动端适配 */
+  @media (max-width: 768px) {
+    .introduction img {
+      width: 80%;
+    }
+
+    .infoTable {
+      font-size: 14px;
+
+      tr td.label {
+        width: 35%;
+        font-size: 16px;
+      }
+
+      tr td.value {
+        font-size: 14px;
+      }
+    }
   }
   /* ===== 表格 ===== */
   .infoTable {

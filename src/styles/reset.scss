@@ -1,0 +1,13 @@
+/* =========================
+   基础 Reset
+   覆盖所有元素的 box-sizing 和 body 的默认 margin
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}

@@ -12,24 +12,18 @@
 </template>
 
 <script setup lang="ts">
-import { marked } from "marked";
-import raw from "../data/WorldView.json";
+import { marked } from 'marked'
+import raw from '@/data/WorldView.json'
+import type { WorldViewItem } from '@/types'
 
-type WorldView = {
-  id: number;
-  title: string;
-  content: string;
-};
-
-const views = raw as WorldView[];
+const views = raw as WorldViewItem[]
 
 const render = (text: string) => {
-  return marked(text || "");
-};
+  return marked(text || '')
+}
 </script>
 
 <style scoped>
-/* 每一块世界观 */
 .section {
   margin-bottom: 60px;
 }

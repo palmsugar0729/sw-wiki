@@ -2,13 +2,13 @@
   <div
     class="page detail-bg"
     v-if="unit"
-    :style="{ '--bg-image': `url(${getBg(unit.id, unit.background)})` }"
+    :style="{ '--bg-image': `url(${getEntityImage('unit', unit.id, unit.background)})` }"
   >
     <div class="page-content detail-page">
       <div class="detail-container">
-        <!-- 上半部分：信息 + 图片 -->
+        <!-- 上半部分 -->
         <div class="top-section">
-          <!-- 左侧：信息 -->
+          <!-- 左侧表格 -->
           <table class="infoTable">
             <tr v-for="(item, index) in unit.info" :key="index">
               <td class="label">{{ item.label }}</td>
@@ -31,7 +31,7 @@
             </tr>
           </table>
 
-          <!-- 右侧：图片 -->
+          <!-- 右侧图片 -->
           <div class="image">
             <button
               v-for="key in imageKeys"
@@ -42,13 +42,13 @@
               {{ getImageLabel(key) }}
             </button>
             <img
-              :src="getImage(unit.id, unit.images[currentImage])"
+              :src="getEntityImage('unit', unit.id, unit.images[currentImage])"
               alt="unit image"
             />
           </div>
         </div>
 
-        <!-- 下半部分：部队介绍 -->
+        <!-- 下半部分 -->
         <div class="introduction" @click="handleLinkClick">
           <div v-html="renderText(unit.history)"></div>
         </div>
@@ -58,93 +58,50 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute, useRouter } from "vue-router";
-import { ref, computed, watch } from "vue";
-import raw from "../data/UnitInfo.json";
-import { renderText } from "../utils/render";
+import { useRoute } from 'vue-router'
+import { ref, computed, watch } from 'vue'
+import raw from '@/data/UnitInfo.json'
+import { renderText } from '@/utils/render'
+import { getEntityImage } from '@/utils/media'
+import { useWikiLink } from '@/composables/useWikiLink'
+import type { Unit } from '@/types'
 
-/* ✅ 定义类型 */
-type InfoItem = {
-  label: string;
-  value: string | string[];
-};
+const units = raw as Unit[]
+const route = useRoute()
+const { handleLinkClick } = useWikiLink()
 
-type Unit = {
-  id: string;
-  info: InfoItem[];
-  images: Record<string, string>;
-  background: string;
-  history: string;
-  tags: string[];
-};
-
-/* 数据 */
-const units = raw as Unit[];
-const route = useRoute();
-const router = useRouter();
-
-// 处理内链接点击
-const handleLinkClick = (e: Event) => {
-  const el = e.target as HTMLElement;
-
-  if (el.classList.contains("wiki-link")) {
-    const type = el.dataset.type;
-    const id = el.dataset.id;
-
-    if (!type || !id) return;
-
-    router.push(`/${type}/${id}`);
-  }
-};
-
-/* 找到当前部队 */
 const unit = computed(() =>
   units.find((u) => u.id === String(route.params.id))
-);
+)
 
-// 获取部队标识
-const getImage = (id: string, name?: string) => {
-  if (!name) return "";
-  return `/wiki/Unit/${id}/${name}.jpg`;
-};
-/* 当前图片 */
-const currentImage = ref<string>("");
-/* 自动初始化 */
+const currentImage = ref<string>('')
 watch(
   () => unit.value,
   (val) => {
     if (val?.images) {
-      currentImage.value = Object.keys(val.images)[0];
+      currentImage.value = Object.keys(val.images)[0]
     }
   },
   { immediate: true }
-);
-/* 图片 keys */
-const imageKeys = computed(() => {
-  if (!unit.value) return [];
-  return Object.keys(unit.value.images);
-});
-/* 标签映射 */
-const getImageLabel = (key: string) => {
-  if (key === "emblem") return "徽章";
-  return key;
-};
+)
 
-// 或许背景图片
-const getBg = (id: string, name?: string) => {
-  if (!name) return "";
-  return `/wiki/unit/${id}/${name}.jpg`;
-};
+const imageKeys = computed(() => {
+  if (!unit.value) return []
+  return Object.keys(unit.value.images)
+})
+
+const getImageLabel = (key: string) => {
+  if (key === 'emblem') return '徽章'
+  return key
+}
 </script>
 
 <style scoped>
-/* ===== 上半部分 ===== */
 .top-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: start;
-  /* 右侧图片 */
 
   .image {
     flex: 1;
@@ -156,6 +113,18 @@ const getBg = (id: string, name?: string) => {
     img {
       max-width: 100%;
       border-radius: 10px;
+    }
+  }
+}
+
+/* 移动端 ≤768px */
+@media (max-width: 768px) {
+  .top-section {
+    grid-template-columns: 1fr;
+
+    .image {
+      width: 100%;
+      justify-content: center;
     }
   }
 }

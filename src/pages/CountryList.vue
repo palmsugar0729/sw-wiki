@@ -2,7 +2,6 @@
   <div class="page list-bg">
     <div class="list-page page-content">
       <h1>国家介绍</h1>
-      <!-- 展示卡片 -->
       <div class="grid">
         <div
           v-for="item in countries"
@@ -20,14 +19,16 @@
 </template>
 
 <script setup lang="ts">
-import countries from "../data/CountryInfo.json";
-import { useRouter } from "vue-router";
-// 添加路由控制，点击展示卡片跳转到详情页
-const router = useRouter();
+import type { Country } from '@/types'
+import countriesRaw from '@/data/CountryInfo.json'
+import { useRouter } from 'vue-router'
+
+const countries = countriesRaw as Country[]
+const router = useRouter()
 
 const goDetail = (id: string) => {
-  router.push(`/country/${id}`);
-};
+  router.push(`/country/${id}`)
+}
 </script>
 
 <style scoped>
@@ -53,5 +54,12 @@ h3 {
 .shortIntro {
   text-indent: 2em;
   text-align: left;
+}
+
+/* 移动端 ≤768px */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }
 </style>

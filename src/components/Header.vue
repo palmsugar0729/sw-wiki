@@ -21,12 +21,17 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { useSidebarStore } from "../store/sidebar";
+import { useSidebarStore } from "@/store/sidebar";
 import { useRoute } from "vue-router";
+import type { Character, Country, Unit, InfoItem } from "@/types";
 
-import characters from "../data/CharaInfo.json";
-import countries from "../data/CountryInfo.json";
-import units from "../data/UnitInfo.json";
+import charactersRaw from "@/data/CharaInfo.json";
+import countriesRaw from "@/data/CountryInfo.json";
+import unitsRaw from "@/data/UnitInfo.json";
+
+const characters = charactersRaw as Character[]
+const countries = countriesRaw as Country[]
+const units = unitsRaw as Unit[]
 
 const route = useRoute();
 
@@ -52,21 +57,21 @@ const pageTitle = computed(() => {
 
   // 国家
   if (path.startsWith("/country/") && id) {
-    const item = countries.find((c) => c.id === id);
+    const item = countries.find((c: Country) => c.id === id);
     return item?.countryChineseName || "国家详情";
   }
 
   // 部队
   if (path.startsWith("/unit/") && id) {
-    const item = units.find((u) => u.id === id);
-    const name = item?.info?.find((i) => i.label === "部队名")?.value;
+    const item = units.find((u: Unit) => u.id === id);
+    const name = item?.info?.find((i: InfoItem) => i.label === "部队名")?.value;
     return name || "部队详情";
   }
 
   // 角色
   if (path.startsWith("/character/") && id) {
-    const item = characters.find((ch) => ch.id === id);
-    const name = item?.info?.find((i) => i.label === "姓名")?.value;
+    const item = characters.find((ch: Character) => ch.id === id);
+    const name = item?.info?.find((i: InfoItem) => i.label === "姓名")?.value;
     return name || "人物详情";
   }
 

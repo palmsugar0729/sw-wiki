@@ -75,7 +75,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import Clock from "../components/clockParts.vue";
+import Clock from "@/components/ClockWidget.vue";
 
 // 联系方式弹窗
 const showContact = ref(false);
@@ -96,6 +96,33 @@ const showDonate = ref(false);
   flex-wrap: wrap;
   margin: 30px 0;
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .copyRight {
+    text-align: center;
+    min-width: auto;
+    padding: 0 10px;
+  }
+
+  .links {
+    justify-content: center;
+  }
+
+  .visit-count {
+    margin-left: 0;
+  }
+
+  .clock {
+    text-align: center;
+  }
 }
 
 /* 左侧版权 */
@@ -138,7 +165,7 @@ span {
 .links span:hover,
 a:hover {
   text-decoration: underline;
-  color: red;
+  color: #facc15;
   cursor: pointer;
 }
 

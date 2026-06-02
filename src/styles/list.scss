@@ -20,6 +20,13 @@
     color: #facc15;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 28px;
+      margin: 30px 0;
+    }
+  }
   .shortIntro,
   h3 {
     font-weight: bold;

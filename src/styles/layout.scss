@@ -1,0 +1,71 @@
+/* =========================
+   全局布局样式
+   侧边栏、主内容区、body 背景色
+========================= */
+
+body {
+  background: #0ea5e9;
+  color: white;
+}
+
+/* 弹性布局容器 */
+.layout {
+  display: flex;
+  flex: 1;
+  min-height: 95vh;
+}
+
+.layout .main {
+  flex: 1;
+}
+
+/* 侧边栏 — 结构部分 */
+#app .layout .sidebar {
+  width: 250px;
+  background: #0284c7;
+  padding: 15px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &.collapsed {
+    width: 0;
+    padding: 0;
+  }
+}
+
+/* 侧边栏隐藏时，内容区域自动扩展 */
+.main.sidebar-hidden {
+  margin-left: 0;
+}
+
+/* =========================
+   移动端 ≤768px
+========================= */
+@media (max-width: 768px) {
+  .layout {
+    position: relative;
+  }
+
+  /* 侧边栏覆盖模式 */
+  #app .layout .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 50;
+    padding: 15px;
+    transform: translateX(0);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+
+    &.collapsed {
+      transform: translateX(-100%);
+      width: 250px;
+      padding: 15px;
+    }
+  }
+
+  .main.sidebar-hidden {
+    margin-left: 0;
+  }
+}

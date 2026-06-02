@@ -49,3 +49,10 @@ body {
   grid-area: 1/1;
   z-index: 1;
 }
+
+@media (max-width: 768px) {
+  .page-content {
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+}

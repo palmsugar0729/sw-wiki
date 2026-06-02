@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
-import Home from '../pages/Home.vue'
-import World from '../pages/WorldView.vue'
-import CountryList from '../pages/CountryList.vue'
-import CountryDetail from '../pages/CountryDetail.vue'
-import UnitList from '../pages/UnitList.vue'
-import UnitDetail from '../pages/UnitDetail.vue'
-import CharaList from '../pages/CharaList.vue'
-import CharaDetail from '../pages/CharaDetail.vue'
-import Privacy from '../pages/privacy.vue'
+import Home from '@/pages/Home.vue'
+import World from '@/pages/WorldView.vue'
+import CountryList from '@/pages/CountryList.vue'
+import CountryDetail from '@/pages/CountryDetail.vue'
+import UnitList from '@/pages/UnitList.vue'
+import UnitDetail from '@/pages/UnitDetail.vue'
+import CharacterList from '@/pages/CharacterList.vue'
+import CharacterDetail from '@/pages/CharacterDetail.vue'
+import Privacy from '@/pages/Privacy.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: '/', component: Home },
@@ -17,8 +17,8 @@ const routes: RouteRecordRaw[] = [
   { path: '/country/:id', component: CountryDetail },
   { path: '/units', component: UnitList },
   { path: '/unit/:id', component: UnitDetail },
-  { path: '/characters', component: CharaList },
-  { path: '/character/:id', component: CharaDetail },
+  { path: '/characters', component: CharacterList },
+  { path: '/character/:id', component: CharacterDetail },
   { path: '/privacy', component: Privacy }
 ]
 

@@ -139,3 +139,4 @@ Vue 3 + TypeScript + Vite + Pinia + Vue Router + marked + SCSS
 - 原始 `needs.md` 封存至 `docs/needs.md`，不再修改
 - 根目录 `needs.md` 保留已完成条目，指向新文档
 - 更新 PRD 文档中需求清单链接
+- 手动推送至 origin/main（GitHub 网络恢复后）

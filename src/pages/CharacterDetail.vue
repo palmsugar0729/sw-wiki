@@ -206,7 +206,7 @@ const openPreview = (index: number) => {
 .g-title {
   margin-bottom: 10px;
   color: #facc15;
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .gallery {

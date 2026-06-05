@@ -61,7 +61,7 @@ const onSelect = (item: SearchResult) => {
 
 .group-label {
   padding: 8px 12px 4px;
-  font-size: 12px;
+  font-size: 14px;
   color: #999;
   font-weight: bold;
   text-transform: uppercase;
@@ -82,7 +82,7 @@ const onSelect = (item: SearchResult) => {
 }
 
 .item-title {
-  font-size: 14px;
+  font-size: 16px;
   color: #222;
   font-weight: bold;
   white-space: nowrap;
@@ -91,7 +91,7 @@ const onSelect = (item: SearchResult) => {
 }
 
 .item-subtitle {
-  font-size: 12px;
+  font-size: 14px;
   color: #888;
   white-space: nowrap;
   overflow: hidden;
@@ -101,7 +101,7 @@ const onSelect = (item: SearchResult) => {
 .item-type-tag {
   margin-left: auto;
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: 13px;
   color: #0284c7;
   background: #e0f0ff;
   padding: 2px 6px;
@@ -111,7 +111,7 @@ const onSelect = (item: SearchResult) => {
 .empty-text {
   padding: 16px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
 }
 

@@ -133,10 +133,11 @@ Vue 3 + TypeScript + Vite + Pinia + Vue Router + marked + SCSS
   - 添加图片资源：`public/wiki/character/117/`（bg.jpg、ill01.jpg、立绘1.jpg、头像.jpg）
   - alias: 赫尔米娜·兰特 / 兰特
 
-### 2026-06-05 — 需求文档整理
+### 2026-06-05 — 需求文档整理 + UI 微调
 
 - 未完成条目（用户登录注册系统、图片格式转化）从 `needs.md` 迁移至 `docs/needs_2.0.md`
 - 原始 `needs.md` 封存至 `docs/needs.md`，不再修改
 - 根目录 `needs.md` 保留已完成条目，指向新文档
 - 更新 PRD 文档中需求清单链接
 - 手动推送至 origin/main（GitHub 网络恢复后）
+- **UI 微调**：PC 端全局字号 +2px（body 基准 16→20px），涉及所有页面标题、正文、组件，提升阅读体验

@@ -39,14 +39,14 @@
         margin-right: 5px;
         width: 300px;
         text-align: center;
-        font-size: 24px;
+        font-size: 26px;
 
         #time {
             margin-bottom: 10px;
         }
 
         #date {
-            font-size: 18px;
+            font-size: 20px;
         }
     }
 

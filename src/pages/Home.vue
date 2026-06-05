@@ -149,7 +149,7 @@ const goDetail = (id: string) => {
 <style scoped>
 .page-content h1 {
   margin-bottom: 30px;
-  font-size: 50px;
+  font-size: 52px;
   text-align: center;
   font-weight: bold;
   color: #facc15;
@@ -170,7 +170,7 @@ const goDetail = (id: string) => {
   }
 
   h2 {
-    font-size: 35px;
+    font-size: 37px;
     font-weight: bold;
     margin-bottom: 30px;
   }
@@ -181,7 +181,7 @@ const goDetail = (id: string) => {
     background: none;
     text-align: left;
     align-items: center;
-    font-size: 26px;
+    font-size: 28px;
   }
 
   .notice {
@@ -222,22 +222,22 @@ const goDetail = (id: string) => {
     .title {
       display: flex;
       justify-content: space-between;
-      font-size: 12px;
+      font-size: 14px;
       opacity: 0.7;
       margin-bottom: 8px;
 
       & > span {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: normal;
         color: #000;
       }
       .date {
-        font-size: 14px;
+        font-size: 16px;
       }
     }
 
     .content {
-      font-size: 14px;
+      font-size: 16px;
       margin-bottom: 10px;
       color: #000;
       text-align: left;
@@ -258,7 +258,7 @@ const goDetail = (id: string) => {
 
     .link {
       margin-top: 10px;
-      font-size: 13px;
+      font-size: 15px;
       color: #0050a5;
       cursor: pointer;
     }
@@ -287,12 +287,12 @@ const goDetail = (id: string) => {
       .name {
         color: #000;
         font-weight: bold;
-        font-size: 25px;
+        font-size: 27px;
       }
 
       .date {
         color: #000;
-        font-size: 15px;
+        font-size: 17px;
         opacity: 0.7;
         text-align-last: left;
       }

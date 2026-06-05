@@ -85,7 +85,7 @@ const pageTitle = computed(() => {
 .header {
   display: flex;
   align-items: center;
-  font-size: 24px;
+  font-size: 26px;
   min-height: 5vh;
   padding: 0 20px;
   font-weight: bold;

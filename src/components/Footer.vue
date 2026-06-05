@@ -159,7 +159,7 @@ const showDonate = ref(false);
 span {
   text-decoration: none;
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .links span:hover,

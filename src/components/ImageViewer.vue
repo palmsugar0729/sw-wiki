@@ -91,7 +91,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKey))
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 40px;
+  font-size: 42px;
   color: #fff;
   background: none;
   border: none;
@@ -111,7 +111,7 @@ onUnmounted(() => window.removeEventListener('keydown', handleKey))
   position: absolute;
   top: 20px;
   right: 30px;
-  font-size: 40px;
+  font-size: 42px;
   color: #fff;
   cursor: pointer;
 }

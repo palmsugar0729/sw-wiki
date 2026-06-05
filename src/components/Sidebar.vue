@@ -122,7 +122,7 @@ input {
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 
@@ -148,7 +148,7 @@ a:hover {
   background: none;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
   z-index: 51;
 }

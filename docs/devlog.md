@@ -108,3 +108,34 @@ Vue 3 + TypeScript + Vite + Pinia + Vue Router + marked + SCSS
 ---
 
 > 以上内容在第二阶段（2026-06-02）进行了全面重构，详见 [prd.md](prd.md)。
+
+---
+
+## 第二阶段：全面重构（2026-06-02 ~ 2026-06-05）
+
+### 2026-06-02 — 全面代码重构 + 移动端适配 + 搜索系统
+
+- 项目文件夹结构优化：删除 Vite 模板残留、死文件，样式模块化拆分
+- 代码优化：创建共享类型文件 `src/types/index.ts`、composables（useWikiLink、useSearch）、工具函数统一（render.ts、media.ts）
+- 图片预览组件 `ImageViewer.vue` 统一封装，支持键盘导航
+- 文件重命名规范化：CharaList→CharacterList、CharaDetail→CharacterDetail 等
+- 全部相对路径 import 改为 `@/` 别名，修补 `any` 类型
+- 移动端适配：全局响应式断点 ≤768px，侧边栏 fixed overlay 模式，首页/详情页布局适配
+- 搜索系统：useSearch composable + SearchDropdown 组件，模糊匹配 alias 字段，按类型分组
+
+> 详见 git commit `e08b80d refactor: 全面代码重构 + 移动端适配 + 搜索系统`
+
+### 2026-06-04 — 新角色数据 + CharaInfo.json 格式化
+
+- CharaInfo.json 缩进统一为 2 空格，整体格式化
+- 新增角色 **赫尔米娜·约翰娜·齐格林德·兰特**（id: 117）
+  - 卡尔斯兰帝国夜间战斗王牌，人类史上首个 100 击坠夜战魔女
+  - 添加图片资源：`public/wiki/character/117/`（bg.jpg、ill01.jpg、立绘1.jpg、头像.jpg）
+  - alias: 赫尔米娜·兰特 / 兰特
+
+### 2026-06-05 — 需求文档整理
+
+- 未完成条目（用户登录注册系统、图片格式转化）从 `needs.md` 迁移至 `docs/needs_2.0.md`
+- 原始 `needs.md` 封存至 `docs/needs.md`，不再修改
+- 根目录 `needs.md` 保留已完成条目，指向新文档
+- 更新 PRD 文档中需求清单链接

@@ -8,7 +8,7 @@ AI 开发助手指南，后续开发请严格遵守以下约定。
 
 强袭魔女 (Strike Witches) Wiki 百科项目，基于 Vue 3 + TypeScript + Vite 构建。数据以 JSON 形式内置于 `src/data/` 中，渲染 Markdown 内容并支持自定义 `[[内链]]` 语法跳转。
 
-产品需求文档：[docs/prd.md](docs/prd.md) | 需求清单：[needs.md](needs.md) | 开发日志：[docs/devlog.md](docs/devlog.md)
+产品需求文档：[docs/prd.md](docs/prd.md) | 需求清单：[docs/needs_2.0.md](docs/needs_2.0.md) | 开发日志：[docs/devlog.md](docs/devlog.md)
 
 ## 技术栈
 

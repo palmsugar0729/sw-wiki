@@ -66,8 +66,8 @@
         本页面为本站唯一打赏入口，请通过本站进行支持，谨防冒用。
       </p>
 
-      <img src="/donate/wechat.jpg" class="qrcode" />
-      <img src="/donate/alipay.jpg" class="qrcode" />
+      <img src="/donate/wechat.webp" class="qrcode" />
+      <img src="/donate/alipay.webp" class="qrcode" />
 
       <button @click="showDonate = false">关闭</button>
     </div>

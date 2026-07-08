@@ -112,7 +112,7 @@ const displayNews = computed(() => {
 
 const getNewsImage = (id: string, name?: string) => {
   if (!name) return ''
-  return `/wiki/news/${id}/${name}.jpg`
+  return `/wiki/news/${id}/${name}.webp`
 }
 
 /* 大图预览 */

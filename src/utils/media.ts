@@ -24,7 +24,7 @@ export function getEntityImage(
 ): string {
   if (!imageName) return ''
   const folder = ENTITY_FOLDER[entityType]
-  return `/wiki/${folder}/${id}/${imageName}.jpg`
+  return `/wiki/${folder}/${id}/${imageName}.webp`
 }
 
 /**

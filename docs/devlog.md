@@ -141,3 +141,15 @@ Vue 3 + TypeScript + Vite + Pinia + Vue Router + marked + SCSS
 - 更新 PRD 文档中需求清单链接
 - 手动推送至 origin/main（GitHub 网络恢复后）
 - **UI 微调**：PC 端全局字号 +2px（body 基准 16→20px），涉及所有页面标题、正文、组件，提升阅读体验
+
+### 2026-07-08 — 图片 WebP 全面迁移
+
+- 将 `public/` 下全部 306 张非 webp 图片（303 .jpg + 3 .png）转为 .webp 格式，原始文件已删除
+- 代码引用全面更新：
+  - `src/utils/media.ts`：`getEntityImage()` 扩展名 `.jpg` → `.webp`（影响角色、部队、国家所有图片路径）
+  - `src/styles/global.scss` + `src/pages/CountryDetail.vue`：背景图 `bg-normal.jpg` → `.webp`
+  - `src/pages/Home.vue`：`getNewsImage()` 扩展名 → `.webp`
+  - `src/data/CountryInfo.json`：22 个国家旗标路径 → `.webp`
+  - `src/components/Footer.vue`：打赏二维码 → `.webp`
+  - `index.html`：favicon → `.webp`
+- 需求清单第 6 条「图片格式转化」标记完成

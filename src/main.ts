@@ -15,4 +15,9 @@ const pinia = createPinia()
 app.use(pinia)
 app.use(router)
 
+// 恢复登录态
+const { useAuthStore } = await import('@/store/auth')
+const auth = useAuthStore()
+auth.fetchMe()
+
 app.mount('#app')

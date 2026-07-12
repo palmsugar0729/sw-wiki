@@ -5,13 +5,23 @@
 
 ---
 
-## 5. 用户登录注册系统
+## 5. 用户登录注册系统 🚧 进行中
 
-暂时不做数据库，用 json 记录即可。注册时用邮箱验证，目前这个网站项目是小体量，不适合开后台服务器。
+> 方案已确定：**Cloudflare Pages Functions + D1 数据库 + JWT 认证**。
+> 前端在 `src/pages/` 下（Login.vue / Register.vue），状态管理在 `src/store/auth.ts`，
+> 后端在 `functions/`（路由入口）和 `workers/`（auth / crypto / db 逻辑）下。
 
-具体方案待讨论。
+### 已完成 ✅
+- [x] Header 加登录/注册入口 & 用户问候/退出按钮
+- [x] Vite dev 环境 `/api` 代理配置
+- [x] 邮箱验证（当前版本注册即自动验证，后续可接入邮件服务）
+- [x] 后端路由类型修正（`Env` 接口替换 `any` 断言）
 
-问：SQLite用来记录用户信息可否？
+### 待完成
+- [ ] 数据库迁移（`migrations/0001_users.sql` 需要在 D1 执行）
+- [ ] 配置 wrangler.jsonc 的 `database_id` 和 `JWT_SECRET`
+- [ ] 接入邮件服务发送验证邮件（可选，当前自动验证）
+
 
 ## 6. 图片格式转化 ✅
 

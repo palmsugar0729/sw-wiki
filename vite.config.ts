@@ -10,5 +10,14 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src')
     }
+  },
+  server: {
+    proxy: {
+      // 本地开发时，/api 请求转发到 wrangler pages dev（默认 8788 端口）
+      '/api': {
+        target: 'http://localhost:8788',
+        changeOrigin: true,
+      }
+    }
   }
 })

@@ -9,6 +9,8 @@ import UnitDetail from '@/pages/UnitDetail.vue'
 import CharacterList from '@/pages/CharacterList.vue'
 import CharacterDetail from '@/pages/CharacterDetail.vue'
 import Privacy from '@/pages/Privacy.vue'
+import Login from '@/pages/Login.vue'
+import Register from '@/pages/Register.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: '/', component: Home },
@@ -19,7 +21,9 @@ const routes: RouteRecordRaw[] = [
   { path: '/unit/:id', component: UnitDetail },
   { path: '/characters', component: CharacterList },
   { path: '/character/:id', component: CharacterDetail },
-  { path: '/privacy', component: Privacy }
+  { path: '/privacy', component: Privacy },
+  { path: '/login', component: Login },
+  { path: '/register', component: Register },
 ]
 
 

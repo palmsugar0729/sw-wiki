@@ -1,0 +1,2 @@
+- [技术栈](tech-stack.md) — Vue 3 + Vite + npm, Cloudflare Pages 部署
+- [认证系统](auth-system.md) — D1 + Workers 登录注册系统，代码已完成待部署

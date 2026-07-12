@@ -153,3 +153,29 @@ Vue 3 + TypeScript + Vite + Pinia + Vue Router + marked + SCSS
   - `src/components/Footer.vue`：打赏二维码 → `.webp`
   - `index.html`：favicon → `.webp`
 - 需求清单第 6 条「图片格式转化」标记完成
+
+### 2026-07-12 — 用户登录注册系统
+
+- **技术方案**：Cloudflare Pages Functions + D1 数据库 + JWT 认证（PBKDF2 密码哈希 + HMAC-SHA256 JWT，Web Crypto API 零依赖）
+- **前端**：
+  - 新建 `src/pages/Login.vue` / `src/pages/Register.vue`：表单 + 校验 + 路由跳转
+  - 新建 `src/store/auth.ts`（Pinia）：`login()` / `register()` / `logout()` / `fetchMe()` + `isLoggedIn` 计算属性
+  - `src/components/Header.vue`：右侧添加登录/注册/用户问候/退出按钮
+  - `src/main.ts`：应用启动时调用 `auth.fetchMe()` 从 cookie 恢复登录态
+  - `src/router/index.ts`：新增 `/login`、`/register` 路由
+- **后端**（Cloudflare Pages Functions）：
+  - `functions/api/[[route]].ts`：API 路由入口，接管 `/api/auth/*`
+  - `workers/auth.ts`：注册/登录/登出/获取当前用户 + 参数校验 + cookie 管理
+  - `workers/crypto.ts`：PBKDF2 密码哈希 + JWT 签发/验证
+  - `workers/db.ts`：D1 数据库操作层（CRUD + 邮箱验证标记）
+- **数据库**：
+  - `migrations/0001_users.sql`：users 表（id / email / password_hash / nickname / avatar_url / email_verified / created_at / updated_at）
+  - D1 数据库 `sw-wiki-db` 已创建，远程迁移执行成功
+- **邮箱验证**：当前版本注册即自动验证（`emailVerified: true`），预留邮件接入点
+- **Vite 配置**：`vite.config.ts` 添加 `/api` → `localhost:8788` proxy
+- **Wrangler 配置**：`wrangler.jsonc` 配置 D1 绑定 + Pages build 输出目录
+- **API 测试通过**：register / login / me / logout 全部 200
+
+### 修复的 Bug
+- `workers/crypto.ts`：`deriveKey()` 第四个参数 `extractable` 从 `false` 改为 `true`，修复注册时 `Attempt to export non-extractable HMAC key` 错误
+- `workers/auth.ts`：`handleLogout()` 中修复 `new Response(json(...))` 双层 Response 嵌套 → JSON 体变成 `[object Response]` 的问题

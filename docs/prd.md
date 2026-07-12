@@ -1,6 +1,6 @@
 # SW-Wiki 产品需求文档 (PRD)
 
-> 最后更新：2026-06-02
+> 最后更新：2026-07-12
 
 ## 项目概述
 
@@ -10,7 +10,9 @@
 
 Vue 3 + TypeScript + Vite + Pinia + Vue Router + SCSS + marked
 
-纯前端静态站点，数据以 JSON 内置于 `src/data/`，无后端服务。
+前端为主，认证系统使用 Cloudflare Pages Functions + D1 数据库 + JWT（serverless，无传统后台服务器）。
+
+> 详见 `docs/needs_2.0.md` 第 5 条方案说明。
 
 ---
 
@@ -52,18 +54,18 @@ Vue 3 + TypeScript + Vite + Pinia + Vue Router + SCSS + marked
 - 创建 `SearchDropdown` 组件：分组下拉面板，点击跳转，移动端适配
 - 集成到 Sidebar：keyword≥2 字符自动显示，点击外部关闭
 
-### 5. 用户登录注册系统
+### 5. 用户登录注册系统 ✅ 已完成
 
-- 不做数据库，用 JSON 文件记录用户数据
-- 注册时邮箱验证
-- 小体量项目，不开后台服务器
+- 采用 Cloudflare Pages Functions + D1 数据库 + JWT 方案（serverless，无需传统服务器）
+- PBKDF2 密码哈希 + HMAC-SHA256 JWT，Web Crypto API 零依赖
+- 注册/登录/登出/会话恢复全部实现
+- 当前版本注册即自动验证邮箱，后续可接入邮件服务
+- 相关文件：`functions/`、`workers/`、`src/store/auth.ts`、`migrations/`
 
-具体方案待讨论。
+### 6. 图片格式转换 ✅ 已完成
 
-### 6. 图片格式转换
-
-- 将项目中的图片（Wiki 图片资源、图标等）转换为 WebP 格式以减小体积
-- 等图片处理工具做好后再进行
+- public/ 下全部 306 张图片已转为 .webp 格式
+- 代码引用全部更新
 
 ---
 
@@ -80,6 +82,8 @@ Vue 3 + TypeScript + Vite + Pinia + Vue Router + SCSS + marked
 | `/characters` | `CharacterList.vue` | 角色列表 |
 | `/character/:id` | `CharacterDetail.vue` | 角色详情 |
 | `/privacy` | `Privacy.vue` | 隐私政策 |
+| `/login` | `Login.vue` | 用户登录 |
+| `/register` | `Register.vue` | 用户注册 |
 
 ## 数据模型
 

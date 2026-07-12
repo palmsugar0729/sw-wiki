@@ -39,10 +39,13 @@ metadata:
 - [x] 所有代码文件已创建
 - [x] TypeScript 类型检查通过
 - [x] Vite build 通过
-- [ ] D1 数据库未创建
-- [ ] 未部署到 Cloudflare
-- [ ] JWT_SECRET 未设置
+- [x] D1 数据库 `sw-wiki-db` 已创建（remote）
+- [x] `migrations/0001_users.sql` 远程迁移完成
+- [x] `JWT_SECRET` 已设置（`npx wrangler pages secret put JWT_SECRET`）
+- [x] 已部署到 Cloudflare Pages 并测试通过（register / login / me / logout 全部 200）
+- [x] 修复 `deriveKey()` extractable bug + logout Response 嵌套 bug
+- [ ] 邮箱验证邮件发送（当前自动验证，后续接入 MailChannels）
 
 **Why:** 用户登录注册系统是 needs_2.0.md 第 5 项需求。选 D1 因为全在 CF 免费额度内，且 D1 就是 SQLite，以后迁移到自己服务器时 SQL 和逻辑可以复用。
 
-**How to apply:** 明天按部署步骤 1-5 依次执行即可。部署后再做邮箱验证功能。
+**How to apply:** 系统已部署可用。通过 `npm run build && npm run deploy` 更新。本地开发需同时运行 `npm run dev` + `npm run dev:api`。
